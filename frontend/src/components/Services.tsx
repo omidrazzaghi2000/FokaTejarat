@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
@@ -24,7 +27,7 @@ const Services = (): JSX.Element => {
 
   const fetchServices = () => {
     axios
-      .get<ServicesProps[]>('http://127.0.0.1:8000/services', {
+      .get<ServicesProps[]>(`${API_URL}/services`, {
         headers: {
           Accept: 'application/json',
         },

@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -34,7 +37,7 @@ const ReportDetailPage = (): JSX.Element => {
     const fetchReport = () => {
       setLoading(true);
       axios
-        .get<ReportDetailProps>(`http://127.0.0.1:8000/reports/${id}/`, {
+        .get<ReportDetailProps>(`${API_URL}/reports/${id}/`, {
           headers: {
             Accept: 'application/json',
           },

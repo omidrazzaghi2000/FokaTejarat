@@ -3,6 +3,9 @@ import axios from 'axios';
 import CountUp from 'react-countup';
 import VisibilitySensor from 'react-visibility-sensor';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -34,7 +37,7 @@ const About = (): JSX.Element => {
 
   const fetchAbout = () => {
     axios
-      .get<AboutProps[]>('http://127.0.0.1:8000/about', {
+      .get<AboutProps[]>(`${API_URL}/about`, {
         headers: {
           Accept: 'application/json',
         },

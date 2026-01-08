@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -33,7 +36,7 @@ const Contact = (): JSX.Element => {
 
   const fetchContact = () => {
     axios
-      .get<ContactProps[]>('http://127.0.0.1:8000/contact', {
+      .get<ContactProps[]>(`${API_URL}/contact`, {
         headers: {
           Accept: 'application/json',
         },

@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -29,7 +32,7 @@ const Pricing = (): JSX.Element => {
 
   const fetchPricing = () => {
     axios
-      .get<PricingProps[]>('http://127.0.0.1:8000/pricing', {
+      .get<PricingProps[]>(`${API_URL}/pricing`, {
         headers: {
           Accept: 'application/json',
         },

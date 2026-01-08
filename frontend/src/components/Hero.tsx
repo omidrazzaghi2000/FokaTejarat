@@ -10,6 +10,7 @@ import { useTheme } from '@mui/material/styles';
 // Components
 import HeroButtons from './HeroButtons';
 import Spacer from './Spacer';
+import { API_URL } from '../config/api';
 
 import backbg from "../assets/images/hero-bg.jpg";
 
@@ -25,7 +26,7 @@ const Hero = (): JSX.Element => {
 
   const fetchHero = () => {
     axios
-      .get<HeroProps[]>('http://127.0.0.1:8000/hero', {
+      .get<HeroProps[]>(`${API_URL}/hero`, {
         headers: {
           Accept: 'application/json',
         },

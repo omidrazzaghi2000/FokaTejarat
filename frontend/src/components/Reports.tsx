@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -26,7 +29,7 @@ const Reports = (): JSX.Element => {
 
   const fetchReports = () => {
     axios
-      .get<ReportsProps[]>('http://127.0.0.1:8000/reports', {
+      .get<ReportsProps[]>(`${API_URL}/reports`, {
         headers: {
           Accept: 'application/json',
         },

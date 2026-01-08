@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+// Config
+import { API_URL } from '../config/api';
+
 // Material UI
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -18,7 +21,7 @@ const Footer = (): JSX.Element => {
 
   const fetchFooter = () => {
     axios
-      .get<FooterProps[]>('http://127.0.0.1:8000/footer', {
+      .get<FooterProps[]>(`${API_URL}/footer`, {
         headers: {
           Accept: 'application/json',
         },
