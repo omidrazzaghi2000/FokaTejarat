@@ -61,13 +61,13 @@ CORS_ALLOWED_ORIGINS=http://localhost,http://45.138.132.114
 
 ```bash
 # Build images
-sudo docker-compose build
+sudo docker compose build
 
 # اجرای containers
-sudo docker-compose up -d
+sudo docker compose up -d
 
 # مشاهده لاگ‌ها
-sudo docker-compose logs -f
+sudo docker compose logs -f
 ```
 
 ### 5. ساخت Superuser برای Django Admin
