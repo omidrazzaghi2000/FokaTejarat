@@ -52,7 +52,7 @@ const CustomButton = ({ href, text }: Props): JSX.Element => {
           color: theme.palette.text.primary,
           textTransform: 'uppercase',
           marginX: 1.5,
-          marginLeft: '15px',
+          marginRight: '15px',
           '&:active': {
             color: theme.palette.primary.main,
           },

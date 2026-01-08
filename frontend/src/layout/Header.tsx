@@ -56,28 +56,30 @@ const Header = ({ onSidebarOpen }: HeaderProps): JSX.Element => {
                     fontWeight: 'bold',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
-                    marginLeft: '10px',
+                    marginRight: '10px',
                   }}
                 >
-                  Bob's Company
+                  فوکا تجارت
                 </Typography>
               </Box>
             </IconButton>
           </Link>
-          <Box sx={{ flexGrow: 1 }} />
+          
           <Box
             sx={{
               alignItems: 'center',
               display: { lg: 'flex', md: 'none', xs: 'none' },
             }}
           >
-            <CustomButton href='/products' text='Products' />
-            <CustomButton href='/articles' text='Articles' />
-            {/* <CustomButton href='#services' text='Services' /> */}
-            {/* <CustomButton href='#pricing' text='Pricing' /> */}
-            <CustomButton href='#about' text='About' />
-            <CustomButton href='#contact' text='Contact' />
+            <CustomButton href='/products' text='پروژه‌ها' />
+            <CustomButton href='/articles' text='مقالات' />
+            <CustomButton href='/reports' text='گزارش‌ها' />
+            {/* <CustomButton href='#services' text='خدمات' /> */}
+            {/* <CustomButton href='#pricing' text='قیمت‌گذاری' /> */}
+            <CustomButton href='#about' text='درباره ما' />
+            <CustomButton href='#contact' text='تماس با ما' />
           </Box>
+          <Box sx={{ flexGrow: 1 }} />
           <Box
             sx={{
               display: { md: 'block', lg: 'none' },

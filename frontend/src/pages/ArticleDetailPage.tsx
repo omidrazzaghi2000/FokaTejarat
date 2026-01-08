@@ -86,7 +86,7 @@ const ArticleDetailPage = (): JSX.Element => {
             component={Link}
             to='/articles'
             variant='contained'
-            startIcon={<ArrowBackIcon />}
+            endIcon={<ArrowBackIcon />}
             sx={{
               marginTop: 2,
               backgroundColor: theme.palette.primary.main,
@@ -115,7 +115,7 @@ const ArticleDetailPage = (): JSX.Element => {
       <Container maxWidth='lg'>
         <Button
           onClick={() => navigate('/articles')}
-          startIcon={<ArrowBackIcon />}
+          endIcon={<ArrowBackIcon />}
           sx={{
             marginBottom: 4,
             color: theme.palette.primary.main,
@@ -130,7 +130,7 @@ const ArticleDetailPage = (): JSX.Element => {
         <Box
           sx={{
             display: 'flex',
-            flexDirection: { xs: 'column', md: 'row' },
+            flexDirection: { xs: 'column', md: 'row-reverse' },
             gap: 4,
           }}
         >

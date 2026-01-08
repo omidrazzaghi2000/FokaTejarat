@@ -9,15 +9,17 @@ import Layout from './layout/Layout';
 import Home from './pages/Home';
 import ProductsPage from './pages/ProductsPage';
 import ArticlesPage from './pages/ArticlesPage';
+import ReportsPage from './pages/ReportsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ArticleDetailPage from './pages/ArticleDetailPage';
+import ReportDetailPage from './pages/ReportDetailPage';
 
 const App = (): JSX.Element => {
   return (
     <HelmetProvider>
       <Helmet
-        titleTemplate="%s | Bob's Programming Academy"
-        defaultTitle="Bob's Programming Academy"
+        titleTemplate="%s | فوکا تجارت"
+        defaultTitle="فوکا تجارت"
       />
       <ThemeProvider theme={getTheme()}>
         <CssBaseline />
@@ -29,6 +31,8 @@ const App = (): JSX.Element => {
               <Route path='/products/:id' element={<ProductDetailPage />} />
               <Route path='/articles' element={<ArticlesPage />} />
               <Route path='/articles/:id' element={<ArticleDetailPage />} />
+              <Route path='/reports' element={<ReportsPage />} />
+              <Route path='/reports/:id' element={<ReportDetailPage />} />
             </Routes>
           </Layout>
         </BrowserRouter>

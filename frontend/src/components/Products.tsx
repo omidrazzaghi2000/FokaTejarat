@@ -63,7 +63,7 @@ const Products = (): JSX.Element => {
               textTransform: 'uppercase',
             }}
           >
-            Products
+            پروژه‌ها
           </Typography>
           <Typography
             variant='subtitle1'
@@ -72,7 +72,7 @@ const Products = (): JSX.Element => {
             gutterBottom
             color={theme.palette.text.secondary}
           >
-            We offer a range of products to support your business
+            مجموعه‌ای از پروژه‌های ما را برای پشتیبانی از کسب‌وکار شما بررسی کنید
           </Typography>
         </Box>
         <Container>

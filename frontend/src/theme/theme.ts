@@ -5,6 +5,7 @@ import { createTheme, ComponentsOverrides } from '@mui/material/styles';
 const getTheme = (): Theme =>
   responsiveFontSizes(
     createTheme({
+      direction: 'rtl',
       palette: {
         mode: 'dark' as PaletteMode,
         background: {

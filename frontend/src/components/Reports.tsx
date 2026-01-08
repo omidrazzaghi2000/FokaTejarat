@@ -11,38 +11,38 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/material/styles';
 
-interface ArticlesProps {
+interface ReportsProps {
   id: number;
   name: string;
   description: string;
   image: string;
 }
 
-const Articles = (): JSX.Element => {
+const Reports = (): JSX.Element => {
   const theme = useTheme();
   const navigate = useNavigate();
 
-  const [articles, setArticles] = useState<ArticlesProps[]>([]);
+  const [reports, setReports] = useState<ReportsProps[]>([]);
 
-  const fetchArticles = () => {
+  const fetchReports = () => {
     axios
-      .get<ArticlesProps[]>('http://127.0.0.1:8000/articles', {
+      .get<ReportsProps[]>('http://127.0.0.1:8000/reports', {
         headers: {
           Accept: 'application/json',
         },
       })
       .then((response) => {
-        setArticles(response.data);
+        setReports(response.data);
       })
       .catch((error) => console.log(error));
   };
 
   useEffect(() => {
-    fetchArticles();
+    fetchReports();
   }, []);
 
   return (
-    <div id='articles'>
+    <div id='reports'>
       <Box
         sx={{
           paddingTop: 5,
@@ -63,7 +63,7 @@ const Articles = (): JSX.Element => {
               textTransform: 'uppercase',
             }}
           >
-            مقالات
+            گزارش‌ها
           </Typography>
           <Typography
             variant='subtitle1'
@@ -72,12 +72,12 @@ const Articles = (): JSX.Element => {
             gutterBottom
             color={theme.palette.text.secondary}
           >
-            آخرین مقالات و بینش‌های ما را بررسی کنید
+            گزارش‌های جامع و تحلیلی ما را بررسی کنید
           </Typography>
         </Box>
         <Container>
           <Grid container spacing={4}>
-            {articles.map((item, i) => (
+            {reports.map((item, i) => (
               <Grid item xs={12} sm={6} key={i}>
                 <Box
                   component={Card}
@@ -85,7 +85,7 @@ const Articles = (): JSX.Element => {
                   width={1}
                   height={1}
                   bgcolor={theme.palette.background.paper}
-                  onClick={() => navigate(`/articles/${item.id}`)}
+                  onClick={() => navigate(`/reports/${item.id}`)}
                   sx={{
                     cursor: 'pointer',
                     '&:hover': {
@@ -151,5 +151,5 @@ const Articles = (): JSX.Element => {
   );
 };
 
-export default Articles;
+export default Reports;
 

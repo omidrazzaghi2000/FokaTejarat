@@ -52,10 +52,10 @@ const Sidebar = ({ open, onClose }: SidebarProps): JSX.Element => {
                     fontWeight: 'bold',
                     textTransform: 'uppercase',
                     textDecoration: 'none',
-                    marginLeft: 1,
+                    marginRight: 1,
                   }}
                 >
-                  Bob's Company
+                  فوکا تجارت
                 </Typography>
               </IconButton>
             </Link>
@@ -63,22 +63,25 @@ const Sidebar = ({ open, onClose }: SidebarProps): JSX.Element => {
           <Box padding={2}>
             <Box paddingY={2}>
               <Box onClick={() => onClose()}>
-                <CustomButton href='/products' text='Products' />
+                <CustomButton href='/products' text='پروژه‌ها' />
               </Box>
               <Box paddingY={1} onClick={() => onClose()}>
-                <CustomButton href='/articles' text='Articles' />
+                <CustomButton href='/articles' text='مقالات' />
               </Box>
               <Box paddingY={1} onClick={() => onClose()}>
-                <CustomButton href='#services' text='Services' />
+                <CustomButton href='/reports' text='گزارش‌ها' />
               </Box>
               <Box paddingY={1} onClick={() => onClose()}>
-                <CustomButton href='#pricing' text='Pricing' />
+                <CustomButton href='#services' text='خدمات' />
               </Box>
               <Box paddingY={1} onClick={() => onClose()}>
-                <CustomButton href='#about' text='About' />
+                <CustomButton href='#pricing' text='قیمت‌گذاری' />
               </Box>
               <Box paddingY={1} onClick={() => onClose()}>
-                <CustomButton href='#contact' text='Contact' />
+                <CustomButton href='#about' text='درباره ما' />
+              </Box>
+              <Box paddingY={1} onClick={() => onClose()}>
+                <CustomButton href='#contact' text='تماس با ما' />
               </Box>
             </Box>
           </Box>

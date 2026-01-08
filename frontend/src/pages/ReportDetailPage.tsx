@@ -15,43 +15,43 @@ import { useTheme } from '@mui/material/styles';
 // Material Icons
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
-interface ProductDetailProps {
+interface ReportDetailProps {
   id: number;
   name: string;
   description: string;
   image: string;
 }
 
-const ProductDetailPage = (): JSX.Element => {
+const ReportDetailPage = (): JSX.Element => {
   const theme = useTheme();
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const [product, setProduct] = useState<ProductDetailProps | null>(null);
+  const [report, setReport] = useState<ReportDetailProps | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    const fetchProduct = () => {
+    const fetchReport = () => {
       setLoading(true);
       axios
-        .get<ProductDetailProps>(`http://127.0.0.1:8000/products/${id}/`, {
+        .get<ReportDetailProps>(`http://127.0.0.1:8000/reports/${id}/`, {
           headers: {
             Accept: 'application/json',
           },
         })
         .then((response) => {
-          setProduct(response.data);
+          setReport(response.data);
           setLoading(false);
         })
         .catch((error) => {
           console.log(error);
-          setError('محصول یافت نشد');
+          setError('گزارش یافت نشد');
           setLoading(false);
         });
     };
 
     if (id) {
-      fetchProduct();
+      fetchReport();
     }
   }, [id]);
 
@@ -70,7 +70,7 @@ const ProductDetailPage = (): JSX.Element => {
     );
   }
 
-  if (error || !product) {
+  if (error || !report) {
     return (
       <Container>
         <Box
@@ -80,11 +80,11 @@ const ProductDetailPage = (): JSX.Element => {
           }}
         >
           <Typography variant='h5' color='error' gutterBottom>
-            {error || 'محصول یافت نشد'}
+            {error || 'گزارش یافت نشد'}
           </Typography>
           <Button
             component={Link}
-            to='/products'
+            to='/reports'
             variant='contained'
             endIcon={<ArrowBackIcon />}
             sx={{
@@ -95,7 +95,7 @@ const ProductDetailPage = (): JSX.Element => {
               },
             }}
           >
-            بازگشت به لیست محصولات
+            بازگشت به لیست گزارش‌ها
           </Button>
         </Box>
       </Container>
@@ -114,7 +114,7 @@ const ProductDetailPage = (): JSX.Element => {
     >
       <Container maxWidth='lg'>
         <Button
-          onClick={() => navigate('/products')}
+          onClick={() => navigate('/reports')}
           endIcon={<ArrowBackIcon />}
           sx={{
             marginBottom: 4,
@@ -124,7 +124,7 @@ const ProductDetailPage = (): JSX.Element => {
             },
           }}
         >
-          بازگشت به لیست محصولات
+          بازگشت به لیست گزارش‌ها
         </Button>
 
         <Box
@@ -148,8 +148,8 @@ const ProductDetailPage = (): JSX.Element => {
             >
               <CardMedia
                 component='img'
-                image={product.image}
-                alt={product.name}
+                image={report.image}
+                alt={report.name}
                 sx={{
                   width: '100%',
                   height: 'auto',
@@ -176,7 +176,7 @@ const ProductDetailPage = (): JSX.Element => {
                 marginBottom: 3,
               }}
             >
-              {product.name}
+              {report.name}
             </Typography>
 
             <Typography
@@ -187,7 +187,7 @@ const ProductDetailPage = (): JSX.Element => {
                 marginBottom: 4,
               }}
             >
-              {product.description}
+              {report.description}
             </Typography>
 
             <Box
@@ -205,7 +205,7 @@ const ProductDetailPage = (): JSX.Element => {
                   marginBottom: 1,
                 }}
               >
-                شناسه محصول:
+                شناسه گزارش:
               </Typography>
               <Typography
                 variant='body1'
@@ -214,7 +214,7 @@ const ProductDetailPage = (): JSX.Element => {
                   fontWeight: 600,
                 }}
               >
-                #{product.id}
+                #{report.id}
               </Typography>
             </Box>
           </Box>
@@ -224,5 +224,5 @@ const ProductDetailPage = (): JSX.Element => {
   );
 };
 
-export default ProductDetailPage;
+export default ReportDetailPage;
 

@@ -34,7 +34,7 @@ const Footer = (): JSX.Element => {
   }, []);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container >
       {footer.slice(0, 1).map((item, i) => (
         <Grid item xs={12} key={i}>
           <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>

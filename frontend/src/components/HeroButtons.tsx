@@ -28,13 +28,13 @@ const HeroButtons = (): JSX.Element => {
           size='large'
           fullWidth={isMd ? false : true}
           href='#about'
-          endIcon={<ArrowForwardIcon />}
+          startIcon={<ArrowForwardIcon />}
           disableElevation={true}
           sx={{
             backgroundColor: theme.palette.primary.main,
             color: theme.palette.primary.contrastText,
             padding: '15px 30px',
-            marginRight: '15px',
+            marginLeft: '15px',
             fontSize: '16px',
             textTransform: 'uppercase',
             border: `2px solid ${theme.palette.primary.main}`,
@@ -49,11 +49,11 @@ const HeroButtons = (): JSX.Element => {
             transition: 'all 0.3s ease-in-out',
           }}
         >
-          Learn More
+          بیشتر بدانید
         </Button>
-        <Box
+        {/* <Box
           marginTop={{ xs: 2, sm: 0 }}
-          marginLeft={{ sm: 1 }}
+          marginRight={{ sm: 1 }}
           width={{ xs: '100%', md: 'auto' }}
         >
           <Button
@@ -65,7 +65,7 @@ const HeroButtons = (): JSX.Element => {
             disableElevation={true}
             sx={{
               padding: '15px 30px',
-              marginRight: '15px',
+              marginLeft: '15px',
               fontSize: '16px',
               textTransform: 'uppercase',
               border: `2px solid ${theme.palette.primary.main}`,
@@ -82,9 +82,9 @@ const HeroButtons = (): JSX.Element => {
               transition: 'all 0.3s ease-in-out',
             }}
           >
-            Watch Demo
+            تماشای دمو
           </Button>
-        </Box>
+        </Box> */}
       </Box>
     </>
   );

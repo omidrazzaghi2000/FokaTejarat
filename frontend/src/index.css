@@ -2,3 +2,12 @@
     font-family: Yekan;
     src: url("./assets/fonts/BYekan.ttf");
 }
+
+* {
+    direction: rtl;
+}
+
+body {
+    direction: rtl;
+    text-align: right;
+}

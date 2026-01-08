@@ -72,7 +72,7 @@ const About = (): JSX.Element => {
               marginBottom: 2,
             }}
           >
-            About
+            درباره ما
           </Typography>
           <Typography
             variant='subtitle1'
@@ -81,8 +81,7 @@ const About = (): JSX.Element => {
             marginTop={theme.spacing(1)}
             gutterBottom
           >
-            We help software developers learn new skills, gain more experience
-            and create excellent applications
+            ما به توسعه‌دهندگان نرم‌افزار کمک می‌کنیم تا مهارت‌های جدید بیاموزند، تجربه بیشتری کسب کنند و برنامه‌های عالی ایجاد کنند
           </Typography>
         </Box>
         <Container>

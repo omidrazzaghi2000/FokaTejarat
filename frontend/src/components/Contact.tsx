@@ -70,7 +70,7 @@ const Contact = (): JSX.Element => {
               textTransform: 'uppercase',
             }}
           >
-            Contact
+            تماس با ما
           </Typography>
           <Typography
             variant='subtitle1'
@@ -79,13 +79,13 @@ const Contact = (): JSX.Element => {
             gutterBottom
             color={theme.palette.text.secondary}
           >
-            We would love to hear from you
+            خوشحال می‌شویم از شما بشنویم
           </Typography>
         </Box>
         {contact.slice(0, 1).map((item, i) => (
           <Container key={i}>
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} sx={{ order: { xs: 1, md: 2 } }}>
                 <Box sx={{ filter: 'brightness(0.7)' }}>
                   <Map
                     coordinates={[item.latitude, item.longitude]}
@@ -93,7 +93,7 @@ const Contact = (): JSX.Element => {
                   />
                 </Box>
               </Grid>
-              <Grid item xs={12} md={6}>
+              <Grid item xs={12} md={6} sx={{ order: { xs: 2, md: 1 } }}>
                 <Box
                   display='flex'
                   flexDirection='column'
@@ -106,7 +106,7 @@ const Contact = (): JSX.Element => {
                     disableGutters
                     width='auto'
                     padding={0}
-                    marginLeft={5}
+                    marginRight={5}
                     marginBottom={2}
                   >
                     <PhoneIcon
@@ -114,7 +114,7 @@ const Contact = (): JSX.Element => {
                         color: theme.palette.primary.main,
                         width: 25,
                         height: 25,
-                        marginRight: 1,
+                        marginLeft: 1,
                       }}
                     />
                     <ListItemText primary={item.phone} />
@@ -124,7 +124,7 @@ const Contact = (): JSX.Element => {
                     disableGutters
                     width='auto'
                     padding={0}
-                    marginLeft={5}
+                    marginRight={5}
                     marginBottom={2}
                   >
                     <EmailIcon
@@ -132,7 +132,7 @@ const Contact = (): JSX.Element => {
                         color: theme.palette.primary.main,
                         width: 25,
                         height: 25,
-                        marginRight: 1,
+                        marginLeft: 1,
                       }}
                     />
                     <ListItemText primary={item.email} />
@@ -141,7 +141,7 @@ const Contact = (): JSX.Element => {
                     component={ListItem}
                     width='auto'
                     padding={0}
-                    marginLeft={5}
+                    marginRight={5}
                     marginBottom={1}
                     disableGutters
                   >
@@ -150,7 +150,7 @@ const Contact = (): JSX.Element => {
                         color: theme.palette.primary.main,
                         width: 25,
                         height: 25,
-                        marginRight: 1,
+                        marginLeft: 1,
                       }}
                     />
                     <ListItemText primary={item.address} />

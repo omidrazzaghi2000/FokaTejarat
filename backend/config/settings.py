@@ -34,6 +34,7 @@ INSTALLED_APPS = [
   # Local
   'products',
   'articles',
+  'reports',
   'services',
   'pricing',
   'about',
