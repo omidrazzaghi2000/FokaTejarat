@@ -43,18 +43,7 @@ nano .env
 مقادیر را ویرایش کنید:
 
 ```env
-DEBUG=False
-SECRET_KEY=یک-کلید-مخفی-قوی-با-حداقل-50-کاراکتر
-ALLOWED_HOSTS=localhost,127.0.0.1,your-domain.com
-
-DB_NAME=fouka_db
-DB_USER=fouka_user
-DB_PASSWORD=یک-رمز-قوی-اینجا
-
-DB_HOST=db
-DB_PORT=5432
-
-CORS_ALLOWED_ORIGINS=http://localhost,http://your-domain.com
+d
 ```
 
 ### 4. Build و اجرای Docker Compose
