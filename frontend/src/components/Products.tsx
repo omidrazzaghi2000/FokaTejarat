@@ -75,7 +75,7 @@ const Products = (): JSX.Element => {
             gutterBottom
             color={theme.palette.text.secondary}
           >
-            مجموعه‌ای از پروژه‌های ما را برای پشتیبانی از کسب‌وکار شما بررسی کنید
+            مجموعه‌ای از پروژه‌های ما را بررسی کنید
           </Typography>
         </Box>
         <Container>

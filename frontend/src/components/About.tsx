@@ -21,6 +21,10 @@ interface AboutProps {
   description: string;
 }
 
+interface AboutTextProps{
+  about_description:string
+}
+
 const About = (): JSX.Element => {
   const theme = useTheme();
   const [viewPortEntered, setViewPortEntered] = useState(false);
@@ -34,6 +38,7 @@ const About = (): JSX.Element => {
   };
 
   const [about, setAbout] = useState<AboutProps[]>([]);
+  const [abouttext, setAboutText] = useState<AboutTextProps[]>([{about_description:"..."}]);
 
   const fetchAbout = () => {
     axios
@@ -48,8 +53,21 @@ const About = (): JSX.Element => {
       .catch((error) => console.log(error));
   };
 
+  const fetchAboutSubText = () =>{
+    axios.get<AboutTextProps[]>(`${API_URL}/about/text`, {
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+      .then((response) => {
+        setAboutText(response.data);
+      })
+      .catch((error) => console.log(error));
+  }
+
   useEffect(() => {
     fetchAbout();
+    fetchAboutSubText();
   }, []);
 
   return (
@@ -84,7 +102,8 @@ const About = (): JSX.Element => {
             marginTop={theme.spacing(1)}
             gutterBottom
           >
-            ما به توسعه‌دهندگان نرم‌افزار کمک می‌کنیم تا مهارت‌های جدید بیاموزند، تجربه بیشتری کسب کنند و برنامه‌های عالی ایجاد کنند
+
+            {abouttext[0].about_description }
           </Typography>
         </Box>
         <Container>

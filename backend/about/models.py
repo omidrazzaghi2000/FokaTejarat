@@ -1,3 +1,4 @@
+from tabnanny import verbose
 from django.db import models
 
 
@@ -12,3 +13,14 @@ class About(models.Model):
 
   def __str__(self):
     return f'{self.value}{self.suffix}'
+
+
+class AboutText(models.Model):
+  about_description = models.TextField()
+
+  class Meta:
+    verbose_name = 'About Sub Text'
+    verbose_name_plural = 'About Sub Texts'
+
+  def __str__(self):
+    return f'{self.about_description}'

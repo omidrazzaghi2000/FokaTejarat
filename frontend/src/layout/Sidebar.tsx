@@ -22,10 +22,11 @@ const Sidebar = ({ open, onClose }: SidebarProps): JSX.Element => {
   return (
     <>
       <Drawer
-        anchor='left'
+        anchor='right'
         onClose={() => onClose()}
         open={open}
         variant='temporary'
+       
         PaperProps={{
           sx: {
             backgroundColor: theme.palette.background.default,
@@ -33,7 +34,7 @@ const Sidebar = ({ open, onClose }: SidebarProps): JSX.Element => {
           },
         }}
       >
-        <Box height='100%'>
+        <Box height='100%'  style={{zIndex:10000}}>
           <Box width={1}>
             <Link to='/' style={{ textDecoration: 'none' }}>
               <IconButton size='large' disabled>
@@ -71,12 +72,12 @@ const Sidebar = ({ open, onClose }: SidebarProps): JSX.Element => {
               <Box paddingY={1} onClick={() => onClose()}>
                 <CustomButton href='/reports' text='گزارش‌ها' />
               </Box>
-              <Box paddingY={1} onClick={() => onClose()}>
+              {/* <Box paddingY={1} onClick={() => onClose()}>
                 <CustomButton href='#services' text='خدمات' />
               </Box>
               <Box paddingY={1} onClick={() => onClose()}>
                 <CustomButton href='#pricing' text='قیمت‌گذاری' />
-              </Box>
+              </Box> */}
               <Box paddingY={1} onClick={() => onClose()}>
                 <CustomButton href='#about' text='درباره ما' />
               </Box>

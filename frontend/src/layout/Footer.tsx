@@ -40,13 +40,13 @@ const Footer = (): JSX.Element => {
     <Grid container >
       {footer.slice(0, 1).map((item, i) => (
         <Grid item xs={12} key={i}>
-          <Box sx={{ marginBottom: '20px', textAlign: 'center' }}>
+          <Box sx={{ marginBottom: '20px', textAlign: 'center' , border:"1px solid #222" }}>
             <Typography
               align='center'
               variant='subtitle2'
               color={theme.palette.text.secondary}
               gutterBottom
-              sx={{ marginTop: '25px' }}
+              sx={{ marginTop: '25px' ,marginBottom:'25px'}}
             >
               Copyright &copy; {new Date().getFullYear()} {item.copyright}.
             </Typography>
