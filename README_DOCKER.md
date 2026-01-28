@@ -43,9 +43,9 @@ nano .env
 مقادیر را ویرایش کنید:
 
 ```env
-DEBUG=False
+DEBUG=True
 SECRET_KEY=django-insecure--$g-e%io^a4vhd3-1t8=(2ij#%#kk5s!yjkg=s&5bt_zoroxls
-ALLOWED_HOSTS=localhost,127.0.0.1,45.138.132.114
+ALLOWED_HOSTS=localhost,127.0.0.1,91.107.169.179
 
 DB_NAME=fouka_db
 DB_USER=fouka_user
@@ -54,7 +54,7 @@ DB_PASSWORD=6666
 DB_HOST=db
 DB_PORT=5432
 
-CORS_ALLOWED_ORIGINS=http://localhost,http://45.138.132.114
+CORS_ALLOWED_ORIGINS=http://localhost,http://91.107.169.179/
 ```
 
 ### 4. Build و اجرای Docker Compose
