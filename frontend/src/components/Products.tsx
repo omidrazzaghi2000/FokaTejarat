@@ -111,7 +111,7 @@ const Products = (): JSX.Element => {
                     >
                       {item.name}
                     </Typography>
-                    <Typography color='inherit'>{item.description}</Typography>
+                    {/* <Typography color='inherit'>{item.description}</Typography> */}
                   </Box>
                   <Box display='block' width={1} height={1}>
                     <Card
