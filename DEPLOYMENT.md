@@ -209,3 +209,13 @@ docker-compose exec backend python manage.py collectstatic --noinput
 
 برای مشکلات بیشتر به `README_DOCKER.md` مراجعه کنید.
 
+
+### update backend :
+```bash
+docker compose down backend 
+docker compose build backend
+docker compose up backend -d
+docker compose exec backend python manage.py makemigrations
+docker compose exec backend python manage.py migrate
+```
+
