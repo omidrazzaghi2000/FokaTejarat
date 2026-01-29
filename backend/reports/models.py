@@ -6,7 +6,7 @@ from PIL import Image
 
 class Report(models.Model):
   name = models.CharField(max_length=100)
-  description = models.CharField(max_length=200)
+  description = models.TextField()
   image = models.ImageField(upload_to='images')
 
   # override the save method and
