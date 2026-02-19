@@ -17,7 +17,7 @@ import Results from "./results";
 
 const router = createBrowserRouter([
   {
-    path: "/foka",
+    path: "",
     element: (
       <>
         <NavBar />
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/services",
+    path: "/services",
     element: (
       <>
         <NavBar />
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/search",
+    path: "/search",
     element: (
       <>
         <NavBar navBar2={true} />
@@ -47,7 +47,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/services/:id",
+    path: "/services/:id",
     element: (
       <>
         <NavBar />
@@ -57,7 +57,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/showcases/showcase1",
+    path: "/showcases/showcase1",
     element: (
       <>
         <NavBar showCase1Page={true} />
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/showcases/showcase2",
+    path: "/showcases/showcase2",
     element: (
       <>
         <NavBar />
@@ -78,7 +78,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/featured",
+    path: "/featured",
     element: (
       <>
         <NavBar />
@@ -88,7 +88,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/popular",
+    path: "/popular",
     element: (
       <>
         <NavBar />
@@ -98,7 +98,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/products/:id",
+    path: "/products/:id",
     element: (
       <>
         <NavBar navBar2={true} />
@@ -108,7 +108,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/projects/:id",
+    path: "/projects/:id",
     element: (
       <>
         <NavBar />
@@ -118,7 +118,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/about",
+    path: "/about",
     element: (
       <>
         <NavBar />
@@ -128,7 +128,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/foka/contact",
+    path: "/contact",
     element: (
       <>
         <NavBar />

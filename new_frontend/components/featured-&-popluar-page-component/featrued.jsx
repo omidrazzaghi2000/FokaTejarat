@@ -1,12 +1,25 @@
 import { motion } from "framer-motion";
-import { rentHouses } from "../../constants/data";
+import { useEffect, useState } from "react";
 import ExculusivePropertyCard from "../home-page-components/exculusivePropertyCard";
 import { animationVariants } from "../../constants/animationVariants";
-import { useEffect } from "react";
+import axios from "axios";
+import API_URL from "../../config/api";
 
 const Featured = () => {
+  const [products, setProducts] = useState([]);
+
   useEffect(() => {
     document.title = "Featured - Homyz";
+    axios
+      .get(`${API_URL}/products`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        setProducts(response.data || []);
+      })
+      .catch((error) => console.log(error));
   }, []);
   return (
     <div className="overflow-hidden">
@@ -25,23 +38,21 @@ const Featured = () => {
         style={{ maxWidth: 1200 }}
         className="mx-auto gap-10 grid grid-rows-2 grid-cols-2  max-sm:grid-cols-1 max-sm:grid-rows-3 p-10 max-md:px-5 "
       >
-        {rentHouses.map((e, i) => {
-          if (e.type === "featured") {
-            return (
-              <ExculusivePropertyCard
-                href={e.id}
-                imgSrc={e.mainImage}
-                pricing={e.price}
-                titlePart1={"House in "}
-                titlePart2={e.name}
-                type={e.type}
-                key={i}
-                cardHeight={"h-80"}
-                bgColor={"bg-white"}
-              />
-            );
-          }
-        })}
+        {products.map((item, index) => (
+          <ExculusivePropertyCard
+            key={item.id || index}
+            href={item.id}
+            imgSrc={item.image}
+            pricing={item.description}
+            titlePart1={""}
+            titlePart2={item.name}
+            type={"پروژه"}
+            cardHeight={"h-80"}
+            bgColor={"bg-white"}
+            detailPath={`${API_URL}/products/${item.id}`}
+            typePath={`${API_URL}/products`}
+          />
+        ))}
       </div>
     </div>
   );

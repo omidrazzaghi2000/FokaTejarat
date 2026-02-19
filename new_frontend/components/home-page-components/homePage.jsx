@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from "react";
 import { FaPeriscope } from "react-icons/fa";
 import WhatWeDoCard from "./whatwedocard";
 import ExculusivePropertyCard from "./exculusivePropertyCard";
@@ -16,11 +17,16 @@ import { scrollToTop } from "../../constants/scrollToTop";
 import { partnerBrands } from "../../constants/partnerBrands";
 import { useToast } from "@chakra-ui/react";
 import Counter from "./Counter";
+import axios from "axios";
+import API_URL from "../../config/api";
 
 
 const HomePage = () => {
   const navigate = useNavigate();
   const toast = useToast();
+  const [articles, setArticles] = useState([]);
+  const [reports, setReports] = useState([]);
+  const [products, setProducts] = useState([]);
   const errorToast = (res, status) => {
     toast({
       title: res,
@@ -33,6 +39,41 @@ const HomePage = () => {
       },
     });
   };
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/articles`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        setArticles(response.data || []);
+      })
+      .catch((error) => console.log(error));
+
+    axios
+      .get(`${API_URL}/reports`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        setReports(response.data || []);
+      })
+      .catch((error) => console.log(error));
+
+    axios
+      .get(`${API_URL}/products`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        setProducts(response.data || []);
+      })
+      .catch((error) => console.log(error));
+  }, []);
+
   const handleSearch = () => {
     const searchInp = document.getElementById("searchInp");
     if (searchInp.value && searchInp.value.trim()) {
@@ -57,13 +98,14 @@ const HomePage = () => {
             style={{fontFamily:"Koloche"}}
             className="text-center text-6xl max-lg:mx-auto font-semibold max-sm:text-4xl  "
             >
-           فکاتجارت
+           فوکاتجارت
           </motion.h1>
           <motion.p
             variants={animationVariants.fadeLeft}
-            className="text-xl max-lg:mx-auto   "
+            className="text-xl mx-auto"
           >
-            فکاتجارت ما زیست‌توده را به بیوچار ارزشمند تبدیل می‌کنند که کربن اتمسفر را حذف می‌کند - آسیب‌های زیست‌محیطی را از بین می‌برد و انرژی سبز تولید می‌کند.
+پیشرو در طراحی و ساخت خط پیرولیز پسماند در ایران
+
           </motion.p>
           {/* <motion.div
             variants={animationVariants.fadeLeft}
@@ -99,22 +141,55 @@ const HomePage = () => {
             
             <div className="flex gap-12 max-sm:flex-wrap  justify-center">
               <div className="flex justify-start items-center gap-2 bg-green-900 p-4 rounded">
-                <img className="w-20 ml-2" src="/foka/third.svg" alt="img" />
-                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl">مقرون به صرفه</h1>
-زمان بازگشت سرمایه مشتریان CarboFlow نصف سایر پروژه‌ها است.</h2>
+                <img className="w-20 ml-2" src="/1.svg" alt="img" />
+                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl">فناوری کاملاً بومی
+
+</h1>
+</h2>
               </div>
               <div className="flex justify-start items-center gap-2 bg-green-900 p-4 rounded">
-                <img className="w-20 ml-2" src="/foka/second.png" alt="img" />
-                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl"> همه کاره</h1>
-CarboFlow قادر است طیف وسیعی از مواد اولیه را پیرولیز کند.</h2>
+                <img className="w-20 ml-2" style={{filter:"invert(1)"}} src="/2.svg" alt="img" />
+                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl"> کیفیت بالا و پشتیبانی فنی مستمر
+
+</h1>
+</h2>
               </div>
               <div className="flex justify-start items-center gap-2 bg-green-900 p-4 rounded">
-                <img className="w-20 ml-2" src="/foka/first.webp" alt="img" />
-                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl">ظرفیت بالا</h1>
-توان عملیاتی تا ۷۵۰ کیلوگرم در ساعت، و به راحتی می‌توان ظرفیت را افزایش یا کاهش داد.</h2>
+                <img className="w-20 ml-2" style={{filter:"invert(1)"}} src="/3.svg" alt="img" />
+                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl">آموزش و خدمات پس از فروش حرفه‌ای
+
+</h1></h2>
               </div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-10 w-full justify-items-center">
+
+            <div className="flex gap-12 max-sm:flex-wrap  justify-center mt-10">
+              <div className="flex justify-start items-center gap-2 bg-green-900 p-4 rounded">
+                <img className="w-20 ml-2" style={{filter:"invert(1)"}} src="/4.svg" alt="img" />
+                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl">استهلاک کمتر، بهره‌وری بیشتر
+
+
+
+</h1>
+</h2>
+              </div>
+              <div className="flex justify-start items-center gap-2 bg-green-900 p-4 rounded">
+                <img className="w-20 ml-2" style={{filter:"invert(1)"}} src="/5.svg" alt="img" />
+                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl"> صرفه اقتصادی رقابتی
+
+
+
+</h1>
+</h2>
+              </div>
+              <div className="flex justify-start items-center gap-2 bg-green-900 p-4 rounded">
+                <img className="w-20 ml-2" style={{filter:"invert(1)"}} src="/6.svg" alt="img" />
+                <h2 className="text-lg"><h1 style={{fontFamily:"Koloche"}} className="text-xl">سازگارتر با محیط زیست
+
+</h1></h2>
+              </div>
+            </div>
+
+            {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mt-10 w-full justify-items-center">
               <div className="flex flex-col gap-2 items-center text-center">
                 <h2 className="text-4xl title-font font-bold">
                   <Counter to={4} duration={2} />
@@ -151,7 +226,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
                 </h2>
                 <p className="text-lg">انرژی تجدیدپذیر</p>
               </div>
-            </div>
+            </div> */}
           </motion.div>
           
         </motion.div>
@@ -175,7 +250,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
                 We build quality real estate projects
                 <span className=" text-green-500 title-font "> since 1998</span>
               </h2> */}
-              <img src="/foka/second-hero.webp" style={{borderRadius:"10%"}}></img>
+              <img src="/second-hero.webp" style={{borderRadius:"10%"}}></img>
             </motion.div>
           </div>
           <div className="w-2/4 max-md:w-full">
@@ -192,7 +267,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
                 با بهره‌گیری از تجربیات خود به عنوان یک توسعه‌دهنده پروژه، ما تجربه دست اولی از آنچه برای عملی کردن پروژه‌های پیرولیز واقعاً مورد نیاز است، داریم. فناوری پیرولیز CarboFlow ما به گونه‌ای ساخته شده است که مقرون به صرفه، همه‌کاره و با ظرفیت بالا باشد، در حالی که بالاترین استانداردهای بیوچار و بازیابی انرژی را ارائه می‌دهد.
 توانایی کار با انواع خوراک‌ها، زمان تولید و هزینه تولید، همگی چالش‌هایی هستند که ما در طراحی CarboFlow به آنها پرداخته‌ایم. با فناوری خود، امیدواریم که اجرای پروژه‌هایی را که صنعت پیرولیز زیست‌توده را به پتانسیل کامل خود نزدیک‌تر می‌کنند، تسریع کنیم.
               </p>
-              <Link onClick={scrollToTop} to={"/foka/about"}>
+              <Link onClick={scrollToTop} to={"/about"}>
                 <Button
                   content={"درباره ما"}
                   fontSize={"text-xl"}
@@ -223,7 +298,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
             <p className="text-xl">
               تهیه و تلاش در اشتراک  
             </p>
-            <Link onClick={scrollToTop} to={"/foka/about"}>
+            <Link onClick={scrollToTop} to={"/about"}>
               <button
                 style={{ borderWidth: 1.5, borderRadius: 4 }}
                 className="bg-transparent  text-black border-green-500 text-xl px-5 py-2 duration-300 hover:bg-green-500 hover:text-white transition-all mt-5 max-md:mt-3"
@@ -242,7 +317,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
           >
             <div className="flex flex-col gap-7 ">
               <WhatWeDoCard
-                iconSrc={"/foka/icons/reliability.png"}
+                iconSrc={"/icons/reliability.png"}
                 iconAlt={"reliability"}
                 title={"قابل اطمینان"}
                 desc={
@@ -250,7 +325,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
                 }
               />
               <WhatWeDoCard
-                iconSrc={"/foka/icons/communication.png"}
+                iconSrc={"/icons/communication.png"}
                 iconAlt={"communication"}
                 title={"پشتیبانی حرفه‌ای"}
                 desc={
@@ -264,7 +339,7 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
                 className="max-md:hidden rounded-lg w-80 bg-gradient-to-t from-white to-transparent"
               ></div>
               <WhatWeDoCard
-                iconSrc={"/foka/icons/quality-first.png"}
+                iconSrc={"/icons/quality-first.png"}
                 iconAlt={"quality-first"}
                 title={"کیفیت بالا"}
                 desc={
@@ -448,75 +523,62 @@ CarboFlow قادر است طیف وسیعی از مواد اولیه را پیر
           </motion.h2>
           <div className="flex flex-col gap-5 mt-10 max-sm:mt-8">
             <div className=" flex gap-5 max-lg:flex-col">
-              <div className="w-2/4 max-lg:w-full">
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[0].mainImage}
-                  titlePart1={""}
-                  titlePart2={rentHouses[0].name}
-                  pricing={rentHouses[0].price}
-                  type={rentHouses[0].type}
-                  href={rentHouses[0].id}
-                />
-              </div>
-              <div className="w-2/4 max-lg:w-full">
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[1].mainImage}
-                  titlePart1={""}
-                  titlePart2={rentHouses[1].name}
-                  pricing={rentHouses[1].price}
-                  type={rentHouses[1].type}
-                  href={rentHouses[1].id}
-                />
-              </div>
-              {/* <div className="w-2/4 gap-5 flex max-lg:w-full max-sm:flex-col">
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[1].mainImage}
-                  titlePart1={"House in "}
-                  titlePart2={rentHouses[1].name}
-                  pricing={rentHouses[1].price}
-                  type={rentHouses[1].type}
-                  href={rentHouses[1].id}
-                />
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[2].mainImage}
-                  titlePart1={"House in "}
-                  titlePart2={rentHouses[2].name}
-                  pricing={rentHouses[2].price}
-                  type={rentHouses[2].type}
-                  href={rentHouses[2].id}
-                />
-              </div> */}
+              {articles[0] && (
+                <div className="w-2/4 max-lg:w-full">
+                  <ExculusivePropertyCard
+                    imgSrc={articles[0].image}
+                    titlePart1={""}
+                    titlePart2={articles[0].name}
+                    pricing={articles[0].description}
+                    type={"مقاله"}
+                    href={articles[0].id}
+                    detailPath={`${API_URL}/articles/${articles[0].id}`}
+                    typePath={`${API_URL}/articles`}
+                  />
+                </div>
+              )}
+              {articles[1] && (
+                <div className="w-2/4 max-lg:w-full">
+                  <ExculusivePropertyCard
+                    imgSrc={articles[1].image}
+                    titlePart1={""}
+                    titlePart2={articles[1].name}
+                    pricing={articles[1].description}
+                    type={"مقاله"}
+                    href={articles[1].id}
+                    detailPath={`${API_URL}/articles/${articles[1].id}`}
+                    typePath={`${API_URL}/articles`}
+                  />
+                </div>
+              )}
             </div>
-            {/* <div className=" flex gap-5 max-lg:flex-col">
-              <div className="w-2/4 gap-5 flex max-lg:w-full max-sm:flex-col">
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[3].mainImage}
-                  titlePart1={"House in "}
-                  titlePart2={rentHouses[3].name}
-                  pricing={rentHouses[3].price}
-                  type={rentHouses[3].type}
-                  href={rentHouses[3].id}
-                />
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[4].mainImage}
-                  titlePart1={"House in "}
-                  titlePart2={rentHouses[4].name}
-                  pricing={rentHouses[4].price}
-                  type={rentHouses[4].type}
-                  href={rentHouses[4].id}
-                />
-              </div>
-              <div className="w-2/4 max-lg:w-full">
-                <ExculusivePropertyCard
-                  imgSrc={rentHouses[5].mainImage}
-                  titlePart1={"House in "}
-                  titlePart2={rentHouses[5].name}
-                  pricing={rentHouses[5].price}
-                  type={rentHouses[5].type}
-                  href={rentHouses[5].id}
-                />
-              </div>
-            </div> */}
+          </div>
+          <motion.h2
+            initial="initial"
+            whileInView="animate"
+            variants={animationVariants.fadeIn}
+            viewport={{ once: true, amount: 0.2 }}
+            className="text-5xl max-md:text-4xl font-semibold text-center mt-16"
+          >
+            گزارش‌ها
+          </motion.h2>
+          <div className="flex flex-col gap-5 mt-10 max-sm:mt-8">
+            <div className="flex gap-5 max-lg:flex-col">
+              {reports.slice(0, 2).map((item, index) => (
+                <div key={item.id || index} className="w-2/4 max-lg:w-full">
+                  <ExculusivePropertyCard
+                    imgSrc={item.image}
+                    titlePart1={""}
+                    titlePart2={item.name}
+                    pricing={item.description}
+                    type={"گزارش"}
+                    href={item.id}
+                    detailPath={`${API_URL}/reports/${item.id}`}
+                    typePath={`${API_URL}/reports`}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

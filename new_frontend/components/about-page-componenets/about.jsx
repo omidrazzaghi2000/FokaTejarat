@@ -14,7 +14,7 @@ import "./about.css";
 const AboutPage = () => {
   return (
     <>
-      <div className="bg-[url(/services-page-images/service-hero-bg.jpg)] bg-fixed bg-center bg-cover pt-44 pb-36 max-md:pt-36 max-md:pb-24 ">
+      <div style={{direction:'rtl'}} className="bg-[url(/about-2.jpg)] bg-fixed bg-center bg-cover pt-44 pb-36 max-md:pt-36 max-md:pb-24 ">
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -24,13 +24,13 @@ const AboutPage = () => {
           className="flex gap-10 justify-between items-end max-md:items-center px-10 mx-auto max-md:px-5 max-md:flex-col"
         >
           <div className="text-white flex flex-col gap-8 max-md:items-center max-md:text-center">
-            <h1 className="text-5xl font-bold">Who We Are</h1>
+            <h1 className="text-5xl font-bold">درباره‌ی ما</h1>
             <p className="text-xl max-w-md">
-              Our mission is to engage in issues that are of concern to
-              individuals
+            پیشرو در طراحی و ساخت خط پیرولیز پسماند در ایران
+
             </p>
           </div>
-          <div className="flex gap-12 max-sm:text-center text-white">
+          {/* <div className="flex gap-12 max-sm:text-center text-white">
             <div className="flex max-md:items-center flex-col gap-4">
               <h2 className="text-4xl title-font font-bold">19K+</h2>
               <p className="text-lg">Premium houses</p>
@@ -39,12 +39,12 @@ const AboutPage = () => {
               <h2 className="text-4xl  title-font font-bold">5000+</h2>
               <p className="text-lg">Premium houses</p>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
 
       {/* what we offer section start */}
-      <div>
+      <div style={{direction:'rtl'}}>
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -56,24 +56,24 @@ const AboutPage = () => {
           <div className="flex w-full gap-10 max-md:flex-col max-md:justify-center max-md:items-center max-md:text-center">
             <div className="flex flex-col items-start justify-between max-md:items-center">
               <h1 className="text-5xl font-bold title-font w-max">
-                What we offer
+                فوکا تجارت
               </h1>
-              <Link onClick={scrollToTop} to={"/services"}>
+              {/* <Link onClick={scrollToTop} to={"/services"}>
                 <Button
                   content={"Services"}
                   fontSize={"text-xl"}
                   padding={"px-5  py-2"}
                   furtherClasses={"mt-8"}
                 />
-              </Link>
+              </Link> */}
             </div>
-            <div className="w-full">
+            {/* <div className="w-full">
               <img
-                src="/about-page-images/what-we-do.jpg"
+                src="/"
                 className="w-full h-full"
                 alt=""
               />
-            </div>
+            </div> */}
           </div>
           <div className="what-we-do-cards mt-14 gap-8 max-md:grid-cols-1 max-md:grid-rows-3 grid grid-cols-3 grid-rows-1">
             <div>
@@ -85,7 +85,7 @@ const AboutPage = () => {
                 urna in elit amet.
               </p>
             </div>
-            <div>
+            {/* <div>
               <h2 className="text-2xl text-red-500 font-semibold">
                 Get your property ready
               </h2>
@@ -102,7 +102,7 @@ const AboutPage = () => {
                 Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
                 urna in elit amet.
               </p>
-            </div>
+            </div> */}
           </div>
         </motion.div>
       </div>

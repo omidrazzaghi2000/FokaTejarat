@@ -14,7 +14,13 @@ const ExculusivePropertyCard = ({
   href,
   cardHeight,
   bgColor,
+  detailPath,
+  typePath,
 }) => {
+  const resolvedDetailPath = detailPath || `/products/${href}`;
+  const resolvedTypePath = typePath || `/${type || ""}`;
+  const hasPricing = pricing !== undefined && pricing !== null && pricing !== "";
+  const isNumericPricing = typeof pricing === "number";
   return (
     <div
       className={`card ${cardHeight} h-64 w-full relative overflow-hidden rounded-lg`}
@@ -37,11 +43,11 @@ const ExculusivePropertyCard = ({
       <Link
         onClick={scrollToTop}
         className="absolute w-full h-full block "
-        to={`/products/${href}`}
+        to={resolvedDetailPath}
       >
         {/* <a href="" className="absolute w-full h-full block "></a> */}
       </Link>
-      <Link onClick={scrollToTop} to={`/${type}`}>
+      <Link onClick={scrollToTop} to={resolvedTypePath}>
         <Button
           content={type}
           fontSize={"text-xl"}
@@ -52,14 +58,20 @@ const ExculusivePropertyCard = ({
       <div className="flex flex-col gap-3  text-white absolute bottom-6 left-6 right-6 ">
         <Link
           onClick={scrollToTop}
-          to={`/products/${href}`}
+          to={resolvedDetailPath}
           className="text-xl font-medium hover:text-green-500 w-fit transition-all"
         >
           {titlePart1}
           <span className="title-font">{titlePart2}</span>
         </Link>
-        <hr />
-        <p className="text-lg" style={{fontFamily:"Estedad"}}>{formatCompactNumber(pricing)}</p>
+        {hasPricing && (
+          <>
+            <hr />
+            <p className="text-lg" style={{ fontFamily: "Estedad" }}>
+              {isNumericPricing ? formatCompactNumber(pricing) : pricing}
+            </p>
+          </>
+        )}
       </div>
     </div>
   );

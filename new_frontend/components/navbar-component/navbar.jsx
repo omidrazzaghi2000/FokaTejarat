@@ -20,7 +20,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
   const { cartItems, setCartItems, addToCart, modal, setModal } =
     useContext(CartContext);
   const [whenScroll, setWhenScroll] = useState("bg-transparent");
-  const [logo, setlogo] = useState("/foka/logo.png");
+  const [logo, setlogo] = useState("/fokalogo.png");
   const [textColor, setTextColor] = useState("text-white");
   const [showcaseDropDown, setShowcaseDropDown] = useState(false);
   const [viewSideNav, setViewSideNav] = useState(false);
@@ -33,12 +33,12 @@ const NavBar = ({ navBar2, showCase1Page }) => {
     const changeColor = () => {
       if (window.scrollY >= 90) {
         setWhenScroll("bg-white");
-        setlogo("/foka/logo.png");
+        setlogo("/fokalogo.png");
         setTextColor("text-black");
       } else {
         setWhenScroll("transparent");
         setTextColor("text-white");
-        setlogo("/foka/logo.png");
+        setlogo("/fokalogo.png");
       }
     };
     window.addEventListener("scroll", changeColor);
@@ -238,7 +238,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
         >
           <Link onClick={scrollToTop} to="/">
             <img
-              src={navBar2 ? "/foka/logo.png" : logo}
+              src={navBar2 ? "/fokalogo.png" : logo}
               className="w-16 max-lg:w-16"
               alt="logo"
             />
@@ -255,7 +255,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             <Link
               onClick={scrollToTop}
               className="hover:text-green-500 transition-all"
-              to="/foka/about"
+              to="/about"
             >
               درباره ما
             </Link>
@@ -263,52 +263,31 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             <Link
               onClick={scrollToTop}
               className="hover:text-green-500 transition-all"
-              to="/foka/Services"
+              to="/Services"
             >
-              محصولات ما 
+              خدمات ما 
             </Link>
             
-            
-            <div className="showcase-menu cursor-pointer hover:text-green-500 transition-all relative">
-              پروژه‌های ما
-              <div className="showcase-list hidden absolute cursor-default -left-4 " style={{direction:"rtl"}}>
-                <ul
-                  style={{ border: "1px solid #e9e9e9" }}
-                  className="mt-4 flex flex-col gap-2  bg-white text-black p-4 px-5 rounded-md  w-48"
-                >
-                  <li className="listItem flex items-center gap-2 ">
-                    <p
-                      style={{ height: "2px" }}
-                      className="w-0 bullet-line transition-all bg-green-500"
-                    ></p>
-                    <Link
+            <Link
                       onClick={scrollToTop}
                       className="hover:text-green-500 transition-all"
-                      to="/foka/showcases/showcase1"
+                      to="/showcases/showcase1"
                     >
                       مقالات
                     </Link>
-                  </li>
-                  <li className="listItem flex items-center gap-2">
-                    <p
-                      style={{ height: "2px" }}
-                      className="w-0 bullet-line transition-all bg-green-500"
-                    ></p>
-                    <Link
+            
+            <Link
                       onClick={scrollToTop}
                       className="hover:text-green-500 transition-all"
-                      to="/foka/showcases/showcase2"
+                      to="/showcases/showcase2"
                     >
                       گزارش‌ها
                     </Link>
-                  </li>
-                </ul>
-              </div>
-            </div>
+            
             <Link
               onClick={scrollToTop}
               className="hover:text-green-500 transition-all"
-              to="/foka"
+              to="/"
             >
               خانه
             </Link>
@@ -333,7 +312,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
               <FaShoppingCart />
             </div> */}
 
-            <Link onClick={scrollToTop} to="/foka/contact">
+            <Link onClick={scrollToTop} to="/contact">
               <Button
                 content={"تماس با ما"}
                 fontSize={"text-xl"}
@@ -395,7 +374,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
         } bg-white  left-0 w-96 p-5 px-10 max-sm:px-5 max-sm:w-80 z-30 transition-all font-medium`}
       >
         <div id="header" className="flex justify-between items-center">
-          <img className="w-12" src="/foka/logo.png" alt="logo" />
+          <img className="w-12" src="/fokalogo.png" alt="logo" />
           <div
             onClick={() => {
               setViewSideNav(!viewSideNav);
@@ -434,57 +413,36 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             to="/services"
             className="hover:text-green-500 transition-all"
           >
-            محصولات
+            خدمات ما
           </Link>
-          <div className="relative">
-            <div
-              onClick={() => {
-                setShowcaseDropDown(!showcaseDropDown);
-              }}
-              className="flex justify-between hover:text-green-500 max-sm:hover:text-black transition-all items-center cursor-pointer"
-            >
-              <p className="transition-all">پروژه‌های ما</p>
-              <FaAngleDown
-                className={`${
-                  showcaseDropDown ? "-rotate-180" : "rotate-0"
-                } transition-all `}
-              />
-            </div>
-            <ul
-              className={`flex flex-col gap-2 mt-3 pl-5 transition-all duration-300 origin-top  `}
-            >
-              <Link
+
+          <Link
                 onClick={() => {
                   hideNav();
                   scrollToTop();
                 }}
                 className="hover:text-green-500 transition-all"
-                to={"/foka/showcases/showcase1"}
+                to={"/showcases/showcase1"}
               >
                 مقالات
               </Link>
+
               <Link
                 onClick={() => {
                   hideNav();
                   scrollToTop();
                 }}
-                to={"/foka/showcases/showcase2"}
+                to={"/showcases/showcase2"}
                 className="hover:text-green-500 transition-all"
               >
                 گزارش‌ها
               </Link>
-            </ul>
-            <div
-              className={`${
-                showcaseDropDown ? "top-[114px]" : "top-[41px]"
-              } transition-all duration-200 absolute  w-full bg-white h-24`}
-            >
-              <Link
+<Link
                 onClick={() => {
                   hideNav();
                   scrollToTop();
                 }}
-                to={"/foka/about"}
+                to={"/about"}
                 className="hover:text-green-500 transition-all w-full block"
               >
                 درباره‌ی ما
@@ -494,7 +452,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                   hideNav();
                   scrollToTop();
                 }}
-                to={"/foka/contact"}
+                to={"/contact"}
                 className="hover:text-green-500 transition-all w-full block"
               >
                 <Button
@@ -504,8 +462,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                   furtherClasses={" mt-4"}
                 />
               </Link>
-            </div>
-          </div>
+          
         </ul>
       </nav>
     </>

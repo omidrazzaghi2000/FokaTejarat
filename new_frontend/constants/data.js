@@ -2,7 +2,7 @@ export const rentHouses = [
   {
     id: 1,
     type: "featured",
-    mainImage: "/foka/b4.jpg",
+    mainImage: "/b4.jpg",
     moreImages: [
       "/Rent-houses/House-1/home1-2.jpg",
       "/Rent-houses/House-1/home1-3.jpg",
@@ -28,7 +28,7 @@ export const rentHouses = [
   {
     id: 2,
     type: "featured",
-    mainImage: "/foka/b4.jpg",
+    mainImage: "/b4.jpg",
     moreImages: [
       "/Rent-houses/House-2/home2-2.jpg",
       "/Rent-houses/House-2/home2-3.jpg",
