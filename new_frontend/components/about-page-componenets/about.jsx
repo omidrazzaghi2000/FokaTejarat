@@ -75,14 +75,11 @@ const AboutPage = () => {
               />
             </div> */}
           </div>
-          <div className="what-we-do-cards mt-14 gap-8 max-md:grid-cols-1 max-md:grid-rows-3 grid grid-cols-3 grid-rows-1">
+          <div className="what-we-do-cards mt-14 gap-8">
             <div>
-              <h2 className="text-2xl text-red-500 font-semibold">
-                Get an instant free valuation
-              </h2>
-              <p className="text-xl mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
+              
+              <p style={{lineHeight:'24pt'}} className="text-xl mt-2">
+                به عنوان عضوی از پارک فناوری شهرداری تهران، با تکیه بر دانش فنی روز و تجربه مهندسان متخصص ایرانی، فعالیت خود را با هدف حفاظت از محیط ‌زیست و مدیریت پایدار پسماند آغاز کرده است. تمرکز اصلی شرکت بر بازیافت پسماندها از طریق فناوری آذرکافت (پیرولیز) و طراحی و ساخت خطوط پیشرفته پیرولیز می‌باشد. ما قادر به بازیافت انواع پسماندها از جمله: • لاستیک‌های فرسوده • پلاستیک‌ها و مواد پلیمری زائد • لجن‌های نفتی و روغن‌های پسماند • پسماندهای صنعتی و شهری هستیم و از این فرآیند، محصولات باارزشی نظیر هیدروکربن‌ها، کربن سیاه (کک)، گاز و فلزات را استحصال می‌کنیم. این محصولات پس از فرآوری، به صنایع مختلف واگذار شده و مجدداً در چرخه تولید و ارزش‌آفرینی مورد استفاده قرار می‌گیرند.
               </p>
             </div>
             {/* <div>
@@ -106,56 +103,11 @@ const AboutPage = () => {
           </div>
         </motion.div>
       </div>
-      <div className="bg-black">
-        <div
-          style={{ maxWidth: 1200 }}
-          className="mx-auto flex max-md:flex-col justify-center items-center max-md:text-center gap-20 max-md:gap-12 p-10 py-28  max-sm:px-5 max-md:py-16  md:pb-36 "
-        >
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={animationVariants.fadeUp}
-            viewport={{ once: true, amount: 0.2 }}
-            className=" w-1/2 max-md:w-full flex flex-col text-white items-start justify-between max-md:items-center"
-          >
-            <h1 className="text-5xl font-bold title-font w-max">
-              What we offer
-            </h1>
-            <p className="text-xl mt-5">
-              We are real estate agency that has been established since 1995
-              with many advantages over our competitors. We have more than 10000
-              happy customers and have worked with more than 200 distributors
-            </p>
-          </motion.div>
 
-          <motion.div
-            initial="initial"
-            whileInView="animate"
-            variants={animationVariants.zoomOut}
-            viewport={{ once: true, amount: 0.2 }}
-            className=" w-1/2 max-md:w-full text-white/50"
-          >
-            <h2 className="text-2xl">Our Projects</h2>
-            <div className="relative w-fit max-md:mx-auto -mt-7 max-md:-mt-5">
-              <h1 className="text-[150px] max-sm:text-[120px] font-semibold relative text-red-500">
-                200+
-              </h1>
-              <div
-                className="absolute z-50 top-0 right-0 left-0 bottom-0 bg-no-repeat "
-                style={{
-                  backgroundImage: "url(/200+.png)",
-                  backgroundPosition: "40% 100%",
-                  backgroundSize: "95%",
-                }}
-              ></div>
-            </div>
-          </motion.div>
-        </div>
-      </div>
       {/* we focus section start */}
       <div>
         <div
-          style={{ maxWidth: 1200 }}
+          style={{ maxWidth: 1200,direction:'rtl' }}
           className="mx-auto  p-10 py-28  max-sm:px-5 max-md:py-16  "
         >
           <motion.div
@@ -165,16 +117,13 @@ const AboutPage = () => {
             viewport={{ once: true, amount: 0.2 }}
             className=" flex max-md:flex-wrap-reverse justify-center items-end max-md:text-center gap-10 max-md:gap-12  -mt-44 max-md:mt-0 "
           >
-            <div className=" w-1/2 max-md:w-full flex flex-col text-white items-start justify-between max-md:items-center">
-              <img src="/we-focus.jpg" alt="" />
+            <div className=" w-full text-5xl max-lg:text-4xl max-md:w-full ">
+              <h1 className="font-semibold "> قادر به بازیافت انواع پسماندها</h1>
+              
             </div>
+            
 
-            <div className=" w-1/2 text-5xl max-lg:text-4xl max-md:w-full ">
-              <h1 className="font-semibold ">We focus on all</h1>
-              <h1 className="font-semibold  text-red-500">
-                Real Estate Class Saaets
-              </h1>
-            </div>
+            
           </motion.div>
           <div className="we-focus-cards grid grid-cols-3 max-md:grid-cols-1 grid-rows-1 max-md:grid-rows-3 gap-6 mt-10">
             <motion.div
@@ -184,14 +133,14 @@ const AboutPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="border-t-2 text-xl border-black/20 pt-4"
             >
-              <h2 className="title-font font-semibold">-01</h2>
+              <div className="flex">
+<h2 className="title-font font-semibold">۱</h2>
               <h2 className="title-font mt-7  font-medium text-red-500">
-                Residential
+                لاستیک‌های فرسوده
               </h2>
-              <p className="mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
-              </p>
+              </div>
+              
+              
             </motion.div>
             <motion.div
               initial="initial"
@@ -200,14 +149,11 @@ const AboutPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="border-t-2 text-xl border-black/20 pt-4"
             >
-              <h2 className="title-font font-semibold">-01</h2>
+              <div className="flex">
+<h2 className="title-font font-semibold">۲</h2>
               <h2 className="title-font mt-7  font-medium text-red-500">
-                Residential
-              </h2>
-              <p className="mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
-              </p>
+پلاستیک‌هاو مواد پلیمری زائد              </h2>
+              </div>
             </motion.div>
             <motion.div
               initial="initial"
@@ -216,20 +162,17 @@ const AboutPage = () => {
               viewport={{ once: true, amount: 0.2 }}
               className="border-t-2 text-xl border-black/20 pt-4"
             >
-              <h2 className="title-font font-semibold">-01</h2>
+              <div className="flex">
+<h2 className="title-font font-semibold">۳</h2>
               <h2 className="title-font mt-7  font-medium text-red-500">
-                Residential
-              </h2>
-              <p className="mt-2">
-                Lorem ipsum dolor sit amet consectetur. Malesuada vehicula netus
-                urna in elit amet.
-              </p>
+لجن‌های نفتی و روغن‌های پسماند             </h2>
+              </div>
             </motion.div>
           </div>
         </div>
       </div>
       {/* we focus section start */}
-      <div
+      {/* <div
         className="bg-[50%] max-lg:bg-[55%] max-md:bg-[90%] bg-no-repeat bg-fixed"
         style={{ backgroundImage: "url('/faq-bannar.jpg')" }}
       >
@@ -292,10 +235,10 @@ const AboutPage = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
 
       {/* appreciation section start */}
-      <div className="bg-white">
+      {/* <div className="bg-white">
         <div
           style={{ maxWidth: 1200 }}
           className="p-10 max-md:px-5 py-28 mx-auto grid grid-cols-2 grid-rows-1 gap-20 max-lg:grid-cols-1 max-lg:grid-rows-2 "
@@ -387,10 +330,10 @@ const AboutPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* appreciation section end */}
       {/* review section start */}
-      <div className="bg-gray-100">
+      {/* <div className="bg-gray-100">
         <div
           style={{ maxWidth: 1200 }}
           className=" mx-auto flex max-md:flex-col justify-center items-center gap-16 p-10 max-md:px-5 py-28 "
@@ -448,10 +391,10 @@ const AboutPage = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
       {/* review section end */}
       {/* partner brand section start */}
-      <div className="bg-gray-100 border-t-2 border-black/30  border-dashed">
+      {/* <div className="bg-gray-100 border-t-2 border-black/30  border-dashed">
         <div
           style={{ maxWidth: 1200 }}
           className=" mx-auto flex max-md:flex-col justify-center items-center gap-10 p-10 max-md:px-5  "
@@ -475,7 +418,7 @@ const AboutPage = () => {
             })}
           </motion.div>
         </div>
-      </div>
+      </div> */}
       {/* partner brand section end */}
     </>
   );

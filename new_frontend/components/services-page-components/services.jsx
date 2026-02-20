@@ -1,12 +1,27 @@
 import "./service.css";
 import ServiceCard from "./serviceCard";
-import { servicesData } from "../../constants/servicesData";
 import { motion } from "framer-motion";
 import { animationVariants } from "../../constants/animationVariants";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import API_URL from "../../config/api";
 const ServicesComponent = () => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    axios
+      .get(`${API_URL}/products`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        setItems(response.data || []);
+      })
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <>
-      <div className="bg-[url(/services-page-images/service-hero-bg.jpg)] bg-fixed bg-center bg-cover pt-44 pb-36 max-md:pt-36 max-md:pb-24 ">
+      <div className="bg-[url(./assets/hero-bg.jpg)] bg-fixed bg-center bg-cover pt-44 pb-36 max-md:pt-36 max-md:pb-24 " dir="rtl">
         <motion.div
           initial="initial"
           whileInView="animate"
@@ -16,37 +31,36 @@ const ServicesComponent = () => {
           className="flex gap-10 justify-between items-end max-md:items-center px-10 mx-auto max-md:px-5 max-md:flex-col"
         >
           <div className="text-white flex flex-col gap-8 max-md:items-center max-md:text-center">
-            <h1 className="text-5xl font-bold">Our Services</h1>
+            <h1 className="text-5xl font-bold">خدمات ما</h1>
             <p className="text-xl max-w-md">
-              Our mission is to engage in issues that are of concern to
-              individuals
+              ارائه راهکارهای تخصصی بر پایه فناوری با تمرکز بر کیفیت و نوآوری
             </p>
           </div>
-          <div className="flex gap-12 text-white max-md:text-center">
+          {/* <div className="flex gap-12 text-white max-md:text-center">
             <div className="flex max-md:items-center  flex-col gap-4">
-              <h2 className="text-4xl title-font font-bold">19K+</h2>
-              <p className="text-lg">Premium houses</p>
+              <h2 className="text-4xl title-font font-bold">+۱۹K</h2>
+              <p className="text-lg">مشتری راضی</p>
             </div>
             <div className="flex max-md:items-center flex-col gap-4">
-              <h2 className="text-4xl  title-font font-bold">5000+</h2>
-              <p className="text-lg">Premium houses</p>
+              <h2 className="text-4xl  title-font font-bold">+۵۰۰۰</h2>
+              <p className="text-lg">پروژه موفق</p>
             </div>
-          </div>
+          </div> */}
         </motion.div>
       </div>
       <div
         style={{ maxWidth: 1200 }}
         className="mx-auto grid grid-cols-2 max-md:grid-rows-6 max-md:grid-cols-1 grid-rows-3 p-10 max-lg:px-5 gap-5"
+        dir="rtl"
       >
-        {servicesData.map((e, i) => {
+        {items.map((e) => {
           return (
             <ServiceCard
-              key={i}
-              title={e.title}
-              brief={e.shortDescription}
+              key={e.id}
+              title={e.name}
+              brief={e.description}
               imgSrc={e.image}
               id={e.id}
-              iconSrc={e.icon}
             />
           );
         })}

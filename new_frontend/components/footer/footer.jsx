@@ -128,7 +128,8 @@ const Footer = () => {
   // You can add more validations based on your requirements
 
   return (
-    <div className="bg-black">
+    <div style={{direction: "rtl"}}
+    className="bg-black">
       <footer
         style={{ maxWidth: 1200 }}
         className="mx-auto flex justify-between gap-20 max-lg:flex-col py-20 px-8 max-sm:px-5  "
@@ -136,13 +137,10 @@ const Footer = () => {
         <div className="flex flex-col items-start h-auto justify-between gap-16 w-2/4 max-lg:w-full pr-10 max-sm:pr-0">
           <div className="flex flex-col text-lg items-start  justify-between gap-10 ">
             <a href="/">
-              <img src="/Homyz-logo.png" className="w-36" alt="Homyz-logo" />
+              <img src="/fokalogo.png" className="w-36" alt="Foka-logo" />
             </a>
             <p style={{ color: "#696969" }}>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam,
-              pariatur. Fugit dignissimos aut tempora ullam similique minima
-              culpa quod fuga, doloribus expedita, cupiditate sint, nulla
-              distinctio soluta. Aut, sequi quia.
+              با ما در ارتباط باشید.
             </p>
             <div className="flex text-xl justify-start items-center gap-10 text-red-500">
               <Link target="_blank" to={"https://facebook.com"}>
@@ -161,134 +159,53 @@ const Footer = () => {
                 className="hover:text-red-500 transition-all"
                 to="/"
               >
-                Home
+                خانه
               </Link>
               <Link
                 onClick={scrollToTop}
                 className="hover:text-red-500 transition-all"
                 to="/services"
               >
-                Services
+                خدمات ما
               </Link>
               <Link
                 onClick={scrollToTop}
                 className="hover:text-red-500 transition-all"
                 to="/about"
               >
-                About Us
+                درباره ما
               </Link>
               <Link
                 onClick={scrollToTop}
                 className="hover:text-red-500 transition-all"
                 to="/contact"
               >
-                Contact Us
+                تماس با ما
               </Link>
             </ul>
           </div>
-          <p style={{ color: "#696969" }}>© Homyz. All Rights Reserved 2023.</p>
+          <p style={{ color: "#696969" }}>© Foka. All Rights Reserved 2026.</p>
         </div>
 
         <div
           id="contact"
           className="w-2/4 max-lg:w-full flex flex-col h-auto justify-between items-start gap-10 "
         >
-          <h1 className="text-3xl text-white">Get in Touch</h1>
+          <h1 className="text-3xl text-white">راه‌های ارتباطی</h1>
           <div className="name w-full gap-8 text-white max-sm:flex-col max-sm:gap-10 mt-3 flex">
-            <Input
-              pl={3}
-              fontSize={19}
-              variant={"flushed"}
-              borderColor={"#696969"}
-              focusBorderColor="white"
-              _placeholder={{ color: "#696969" }}
-              placeholder="First Name"
-              name="firstName"
-              maxLength={20}
-              value={formData.firstName}
-              onChange={handleChange}
-              autoComplete="off"
-            />
-            <Input
-              pl={3}
-              fontSize={19}
-              variant={"flushed"}
-              borderColor={"#696969"}
-              focusBorderColor="white"
-              _placeholder={{ color: "#696969" }}
-              placeholder="Last Name"
-              name="lastName"
-              maxLength={20}
-              value={formData.lastName}
-              onChange={handleChange}
-              autoComplete="off"
-            />
+            شماره تلفن: 
+
+            <p style={{direction:'ltr'}}>۰۲۱-۲۶۱۲۲۴۶۳</p>
+          </div>
+          
+          <div className="contact w-full text-white gap-8 max-sm:flex-col max-sm:gap-10  flex">
+            ایمیل: 
+            <p style={{direction:'ltr'}}>Fokatejarat@hotmail.com</p>
           </div>
           <div className="contact w-full text-white gap-8 max-sm:flex-col max-sm:gap-10  flex">
-            <Input
-              pl={3}
-              fontSize={19}
-              variant={"flushed"}
-              borderColor={"#696969"}
-              focusBorderColor="white"
-              _placeholder={{ color: "#696969" }}
-              placeholder="Email Address"
-              name="email"
-              maxLength={40}
-              value={formData.email}
-              onChange={handleChange}
-              autoComplete="off"
-            />
-            <Input
-              pl={3}
-              fontSize={19}
-              variant={"flushed"}
-              borderColor={"#696969"}
-              focusBorderColor="white"
-              _placeholder={{ color: "#696969" }}
-              type="number"
-              placeholder="Phone No"
-              name="phoneNo"
-              value={formData.phoneNo}
-              onChange={handleChange}
-              autoComplete="off"
-              max={15}
-              maxLength={15}
-            />
+            آدرس: 
+            <p style={{direction:'rtl'}}>اقدسیه - خیابان شهید موحد دانش - مجتمع تجاری اقدسیه - طبقه سوم - واحد ۳۳ و ۳۲</p>
           </div>
-          <Textarea
-            pl={3}
-            fontSize={19}
-            variant={"flushed"}
-            borderColor={"#696969"}
-            focusBorderColor="white"
-            _placeholder={{ color: "#696969" }}
-            placeholder="Message"
-            maxLength={200}
-            className="w-full text-white"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            autoComplete="off"
-          />
-          <Button
-            _hover={{ backgroundColor: "white", color: "#d5515e" }}
-            backgroundColor={"#d5515e"}
-            color={"white"}
-            borderColor={"#d5515e"}
-            variant={"outline"}
-            size={"lg"}
-            isLoading={btnLoader}
-            loadingText={"Sending.."}
-            onClick={handleSubmit}
-            className="mt-4  max-lg:w-72 max-sm:w-full"
-            transitionDuration={"300ms"}
-            fontWeight={"normal"}
-            fontSize={"20px"}
-            borderRadius={"4px"}
-          >
-            Submit
-          </Button>
         </div>
       </footer>
     </div>

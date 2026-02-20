@@ -3,10 +3,10 @@ import ServicesComponent from "../components/services-page-components/services";
 
 const Services = () => {
   useEffect(() => {
-    document.title = "Servics - Homyz";
+    document.title = "خدمات - فوکاتجارت";
   }, []);
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden" dir="rtl">
       <ServicesComponent />
     </div>
   );

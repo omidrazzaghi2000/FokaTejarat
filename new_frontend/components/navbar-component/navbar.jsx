@@ -263,15 +263,15 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             <Link
               onClick={scrollToTop}
               className="hover:text-green-500 transition-all"
-              to="/Services"
+              to="/services"
             >
-              خدمات ما 
+              خدمات
             </Link>
             
             <Link
                       onClick={scrollToTop}
                       className="hover:text-green-500 transition-all"
-                      to="/showcases/showcase1"
+                      to="/articles"
                     >
                       مقالات
                     </Link>
@@ -279,7 +279,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
             <Link
                       onClick={scrollToTop}
                       className="hover:text-green-500 transition-all"
-                      to="/showcases/showcase2"
+                      to="/reports"
                     >
                       گزارش‌ها
                     </Link>
@@ -422,7 +422,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                   scrollToTop();
                 }}
                 className="hover:text-green-500 transition-all"
-                to={"/showcases/showcase1"}
+                to={"/articles"}
               >
                 مقالات
               </Link>
@@ -432,7 +432,7 @@ const NavBar = ({ navBar2, showCase1Page }) => {
                   hideNav();
                   scrollToTop();
                 }}
-                to={"/showcases/showcase2"}
+                to={"/reports"}
                 className="hover:text-green-500 transition-all"
               >
                 گزارش‌ها

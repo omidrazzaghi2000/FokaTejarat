@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 const ExculusivePropertyCard = ({
   titlePart1,
   titlePart2,
-  pricing,
+  description,
   imgSrc,
   type,
   href,
@@ -19,7 +19,6 @@ const ExculusivePropertyCard = ({
 }) => {
   const resolvedDetailPath = detailPath || `/products/${href}`;
   const resolvedTypePath = typePath || `/${type || ""}`;
-  const hasPricing = pricing !== undefined && pricing !== null && pricing !== "";
   const isNumericPricing = typeof pricing === "number";
   return (
     <div
@@ -64,12 +63,13 @@ const ExculusivePropertyCard = ({
           {titlePart1}
           <span className="title-font">{titlePart2}</span>
         </Link>
-        {hasPricing && (
+        { (
           <>
-            <hr />
-            <p className="text-lg" style={{ fontFamily: "Estedad" }}>
-              {isNumericPricing ? formatCompactNumber(pricing) : pricing}
-            </p>
+            
+            {/* <p className="text-lg" style={{ fontFamily: "Estedad" }}>
+              {description}
+            </p> */}
+            
           </>
         )}
       </div>

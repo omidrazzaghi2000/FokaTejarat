@@ -1,43 +1,47 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import ServicePage from "../components/service-component/service";
+import ArticlePage from "../components/articles-page-components/article";
 import axios from "axios";
 import API_URL from "./config/api";
 
-const Service = () => {
+const Article = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [item, setItem] = useState(null);
+  const [article, setArticle] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/products/${params.id}/`, {
+      .get(`${API_URL}/articles/${params.id}/`, {
         headers: {
           Accept: "application/json",
         },
       })
       .then((response) => {
-        setItem(response.data);
+        setArticle(response.data);
       })
       .catch(() => {
         navigate("/*");
       });
   }, [params.id, navigate]);
+
   useEffect(() => {
-    if (item) {
-      document.title = `خدمات - ${item.name}`;
+    if (article) {
+      document.title = `مقاله - ${article.name}`;
     }
-  }, [item]);
-  if (!item) return null;
+  }, [article]);
+
+  if (!article) {
+    return null;
+  }
+
   return (
-    <ServicePage
-      id={item.id}
-      title={item.name}
-      breif={item.description}
-      descr={item.description}
-      imageSrc={item.image}
+    <ArticlePage
+      title={article.name}
+      description={article.description}
+      imageSrc={article.image}
     />
   );
 };
 
-export default Service;
+export default Article;
+

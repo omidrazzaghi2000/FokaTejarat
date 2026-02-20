@@ -261,11 +261,11 @@ const HomePage = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <h2 className="text-5xl max-md:text-4xl font-bold title-font">
-دستگاه پیرولیز CarboFlow
+دستگاه پیرولیز 
               </h2>
               <p className="text-xl pt-5" style={{textAlign:"justify"}}>
-                با بهره‌گیری از تجربیات خود به عنوان یک توسعه‌دهنده پروژه، ما تجربه دست اولی از آنچه برای عملی کردن پروژه‌های پیرولیز واقعاً مورد نیاز است، داریم. فناوری پیرولیز CarboFlow ما به گونه‌ای ساخته شده است که مقرون به صرفه، همه‌کاره و با ظرفیت بالا باشد، در حالی که بالاترین استانداردهای بیوچار و بازیابی انرژی را ارائه می‌دهد.
-توانایی کار با انواع خوراک‌ها، زمان تولید و هزینه تولید، همگی چالش‌هایی هستند که ما در طراحی CarboFlow به آنها پرداخته‌ایم. با فناوری خود، امیدواریم که اجرای پروژه‌هایی را که صنعت پیرولیز زیست‌توده را به پتانسیل کامل خود نزدیک‌تر می‌کنند، تسریع کنیم.
+                با بهره‌گیری از تجربیات خود به عنوان یک توسعه‌دهنده پروژه، ما تجربه دست اولی از آنچه برای عملی کردن پروژه‌های پیرولیز واقعاً مورد نیاز است، داریم. فناوری پیرولیز این دستگاه ما به گونه‌ای ساخته شده است که مقرون به صرفه، همه‌کاره و با ظرفیت بالا باشد، در حالی که بالاترین استانداردهای بیوچار و بازیابی انرژی را ارائه می‌دهد.
+توانایی کار با انواع خوراک‌ها، زمان تولید و هزینه تولید، همگی چالش‌هایی هستند که ما در طراحی این دستگاه به آنها پرداخته‌ایم. با فناوری خود، امیدواریم که اجرای پروژه‌هایی را که صنعت پیرولیز زیست‌توده را به پتانسیل کامل خود نزدیک‌تر می‌کنند، تسریع کنیم.
               </p>
               <Link onClick={scrollToTop} to={"/about"}>
                 <Button
@@ -532,8 +532,8 @@ const HomePage = () => {
                     pricing={articles[0].description}
                     type={"مقاله"}
                     href={articles[0].id}
-                    detailPath={`${API_URL}/articles/${articles[0].id}`}
-                    typePath={`${API_URL}/articles`}
+                    detailPath={`/articles-page/${articles[0].id}`}
+                    typePath={`/articles`}
                   />
                 </div>
               )}
@@ -546,8 +546,8 @@ const HomePage = () => {
                     pricing={articles[1].description}
                     type={"مقاله"}
                     href={articles[1].id}
-                    detailPath={`${API_URL}/articles/${articles[1].id}`}
-                    typePath={`${API_URL}/articles`}
+                    detailPath={`/articles-page/${articles[1].id}`}
+                    typePath={`/articles`}
                   />
                 </div>
               )}
@@ -573,8 +573,8 @@ const HomePage = () => {
                     pricing={item.description}
                     type={"گزارش"}
                     href={item.id}
-                    detailPath={`${API_URL}/reports/${item.id}`}
-                    typePath={`${API_URL}/reports`}
+                    detailPath={`/reports-page/${item.id}`}
+                    typePath={`/reports`}
                   />
                 </div>
               ))}
@@ -585,7 +585,7 @@ const HomePage = () => {
       {/* what we do section end */}
 
       {/* appreciation section start */}
-      <div className="bg-white" style={{fontFamily:"Estedad"}}>
+      {/* <div className="bg-white" style={{fontFamily:"Estedad"}}>
         <div
           style={{ maxWidth: 1200 }}
           className="p-10 max-md:px-5 py-28 mx-auto grid grid-cols-2 grid-rows-1 gap-20 max-lg:grid-cols-1 max-lg:grid-rows-2 "
@@ -710,10 +710,10 @@ const HomePage = () => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* appreciation section end */}
       {/* review section start */}
-      <div className="bg-gray-100">
+      {/* <div className="bg-gray-100">
         <div
           style={{ maxWidth: 1200 }}
           className=" mx-auto flex max-md:flex-col justify-center items-center gap-16 p-10 max-md:px-5 py-28 "
@@ -771,10 +771,10 @@ const HomePage = () => {
             </div>
           </motion.div>
         </div>
-      </div>
+      </div> */}
       {/* review section end */}
       {/* partner brand section start */}
-      <div className="bg-gray-100 border-t-2 border-black/30  border-dashed">
+      {/* <div className="bg-gray-100 border-t-2 border-black/30  border-dashed">
         <div
           style={{ maxWidth: 1200 }}
           className=" mx-auto flex max-md:flex-col justify-center items-center gap-10 p-10 max-md:px-5  "
@@ -798,7 +798,7 @@ const HomePage = () => {
             })}
           </motion.div>
         </div>
-      </div>
+      </div> */}
       {/* partner brand section end */}
     </div>
   );

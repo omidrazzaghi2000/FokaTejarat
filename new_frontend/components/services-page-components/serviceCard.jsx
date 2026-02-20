@@ -13,6 +13,7 @@ const ServiceCard = ({ id, title, imgSrc, iconSrc, brief }) => {
       viewport={{ once: true, amount: 0.2 }}
       style={{ height: 470 }}
       className="service-card w-full relative "
+      dir="rtl"
     >
       <img
         src={imgSrc}
@@ -21,7 +22,7 @@ const ServiceCard = ({ id, title, imgSrc, iconSrc, brief }) => {
       />
       <div className="w-full h-full absolute bg-black/50"></div>
       <div className="it-container px-4 w-full h-full absolute text-white hover:bg-red-500 transition-all duration-500 flex flex-col justify-center items-center gap-2">
-        <img src={iconSrc} className="w-16 " alt={iconSrc} />
+        {!!iconSrc && <img src={iconSrc} className="w-16 " alt="icon" />}
         <h2 className="service-heading text-3xl title-font font-semibold -mb-36 transition-all duration-200 ">
           {title}
         </h2>
@@ -29,12 +30,12 @@ const ServiceCard = ({ id, title, imgSrc, iconSrc, brief }) => {
           {brief}
         </p>
         <Link
-          to={`/services/${id}`}
+          to={`/services-page/${id}`}
           onClick={scrollToTop}
           className="it-content text-xl mt-10 font-semibold  opacity-0 scale-y-0 transition-all duration-75 origin-top hover:text-black"
         >
           <div className="flex justify-between gap-3 items-center">
-            <p className="duration-150">Read More </p>
+            <p className="duration-150">بیشتر بخوانید</p>
             <FaArrowRight className="duration-150" style={{ marginTop: 2 }} />
           </div>
         </Link>

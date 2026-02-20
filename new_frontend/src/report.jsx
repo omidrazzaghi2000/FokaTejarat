@@ -1,43 +1,47 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import ServicePage from "../components/service-component/service";
+import ReportPage from "../components/reports-page-components/report";
 import axios from "axios";
 import API_URL from "./config/api";
 
-const Service = () => {
+const Report = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [item, setItem] = useState(null);
+  const [report, setReport] = useState(null);
 
   useEffect(() => {
     axios
-      .get(`${API_URL}/products/${params.id}/`, {
+      .get(`${API_URL}/reports/${params.id}/`, {
         headers: {
           Accept: "application/json",
         },
       })
       .then((response) => {
-        setItem(response.data);
+        setReport(response.data);
       })
       .catch(() => {
         navigate("/*");
       });
   }, [params.id, navigate]);
+
   useEffect(() => {
-    if (item) {
-      document.title = `خدمات - ${item.name}`;
+    if (report) {
+      document.title = `گزارش - ${report.name}`;
     }
-  }, [item]);
-  if (!item) return null;
+  }, [report]);
+
+  if (!report) {
+    return null;
+  }
+
   return (
-    <ServicePage
-      id={item.id}
-      title={item.name}
-      breif={item.description}
-      descr={item.description}
-      imageSrc={item.image}
+    <ReportPage
+      title={report.name}
+      description={report.description}
+      imageSrc={report.image}
     />
   );
 };
 
-export default Service;
+export default Report;
+

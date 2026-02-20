@@ -14,6 +14,10 @@ import Featured from "../components/featured-&-popluar-page-component/featrued";
 import Popular from "../components/featured-&-popluar-page-component/popluar";
 import Contact from "./contact";
 import Results from "./results";
+import Articles from "./articles";
+import Article from "./article";
+import Reports from "./reports";
+import Report from "./report";
 
 const router = createBrowserRouter([
   {
@@ -47,11 +51,51 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/services/:id",
+    path: "/services-page/:id",
     element: (
       <>
         <NavBar />
         <Service />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/articles",
+    element: (
+      <>
+        <NavBar />
+        <Articles />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/articles-page/:id",
+    element: (
+      <>
+        <NavBar />
+        <Article />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/reports",
+    element: (
+      <>
+        <NavBar />
+        <Reports />
+        <Footer />
+      </>
+    ),
+  },
+  {
+    path: "/reports-page/:id",
+    element: (
+      <>
+        <NavBar />
+        <Report />
         <Footer />
       </>
     ),
