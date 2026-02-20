@@ -49,7 +49,7 @@ const ArticlePage = ({ title, description, imageSrc }) => {
           whileInView="animate"
           variants={animationVariants.fadeUp}
           viewport={{ once: true, amount: 0 }}
-          className="w-2/3 max-lg:w-full flex flex-col gap-5"
+          className="w-full max-lg:w-full flex flex-col gap-5"
         >
           <h1 className="text-[46px] leading-none max-md:text-4xl font-semibold">
             {title}

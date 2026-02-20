@@ -26,9 +26,9 @@ const ServiceCard = ({ id, title, imgSrc, iconSrc, brief }) => {
         <h2 className="service-heading text-3xl title-font font-semibold -mb-36 transition-all duration-200 ">
           {title}
         </h2>
-        <p className="it-content text-xl mt-10 max-w-md opacity-0  text-center  scale-y-0 transition-all duration-75 origin-top">
+        {/* <p className="it-content text-xl mt-10 max-w-md opacity-0  text-center  scale-y-0 transition-all duration-75 origin-top">
           {brief}
-        </p>
+        </p> */}
         <Link
           to={`/services-page/${id}`}
           onClick={scrollToTop}
