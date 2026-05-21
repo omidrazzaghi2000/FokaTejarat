@@ -1,148 +1,23 @@
-import { Button, Input, Textarea, useToast } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../constants/scrollToTop";
+import ContactForm from "../contact-form/ContactForm";
 
 const Footer = () => {
-  const toast = useToast();
-  const [btnLoader, setBtnLoader] = useState(false);
-
-  const showToast = () => {
-    toast({
-      title: "Message Sent",
-      status: "success",
-      duration: 2000,
-      isClosable: true,
-      position: "top",
-      containerStyle: {
-        zIndex: 9999,
-      },
-    });
-  };
-  const errorToast = (res, status) => {
-    toast({
-      title: res,
-      status: status,
-      duration: 2000,
-      isClosable: true,
-      position: "top",
-      containerStyle: {
-        zIndex: 9999,
-      },
-    });
-  };
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    phoneNo: "",
-    email: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const handleSubmit = (e) => {
-    const errors = validateForm(formData);
-
-    if (errors === false) {
-      setBtnLoader(true);
-      axios
-        .post("https://homyz-server.vercel.app/contact", formData)
-        .then((response) => {
-          showToast();
-          setFormData({
-            firstName: "",
-            lastName: "",
-            phoneNo: "",
-            email: "",
-            message: "",
-          });
-          setBtnLoader(false);
-        })
-        .catch((error) => {
-          setBtnLoader(false);
-          errorToast(error.message, "error");
-          console.error("Error submitting form:", error);
-        });
-    }
-  };
-
-  const isValidEmail = (email) => {
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailPattern.test(email);
-  };
-
-  const validateForm = (data) => {
-    let _error;
-    if (
-      data.firstName &&
-      data.firstName.trim() &&
-      data.lastName &&
-      data.lastName.trim() &&
-      data.email &&
-      data.email.trim() &&
-      isValidEmail(data.email.trim()) &&
-      data.phoneNo &&
-      data.phoneNo.trim() &&
-      data.message &&
-      data.message.trim()
-    ) {
-      _error = false;
-    } else {
-      if (
-        !data.firstName &&
-        !data.firstName.trim() &&
-        !data.lastName &&
-        !data.lastName.trim() &&
-        !data.email &&
-        !data.email.trim() &&
-        !isValidEmail(data.email.trim()) &&
-        !data.phoneNo &&
-        !data.phoneNo.trim() &&
-        !data.message &&
-        !data.message.trim()
-      ) {
-        errorToast("Fill the fields first!", "error");
-      } else if (!data.firstName || !data.firstName.trim()) {
-        errorToast("Enter the firstName!", "error");
-      } else if (!data.lastName || !data.lastName.trim()) {
-        errorToast("Enter the lastName!", "error");
-      } else if (!data.email || !data.email.trim()) {
-        errorToast("Enter the email!", "error");
-      } else if (!isValidEmail(data.email.trim())) {
-        errorToast("Enter the valid  email!", "error");
-      } else if (!data.phoneNo || !data.phoneNo.trim()) {
-        errorToast("Enter the phone no!", "error");
-      } else if (!data.message || !data.message.trim()) {
-        errorToast("Enter the message!", "error");
-      }
-    }
-    return _error;
-  };
-
-  // You can add more validations based on your requirements
-
   return (
-    <div style={{direction: "rtl"}}
-    className="bg-black">
+    <div style={{ direction: "rtl" }} className="bg-black">
       <footer
         style={{ maxWidth: 1200 }}
-        className="mx-auto flex justify-between gap-20 max-lg:flex-col py-20 px-8 max-sm:px-5  "
+        className="mx-auto flex justify-between gap-16 max-lg:flex-col py-20 px-8 max-sm:px-5"
       >
-        <div className="flex flex-col items-start h-auto justify-between gap-16 w-2/4 max-lg:w-full pr-10 max-sm:pr-0">
-          <div className="flex flex-col text-lg items-start  justify-between gap-10 ">
+        <div className="flex flex-col items-start h-auto justify-between gap-12 w-2/5 max-lg:w-full pr-10 max-sm:pr-0">
+          <div className="flex flex-col text-lg items-start justify-between gap-8">
             <a href="/">
               <img src="/fokalogo.png" className="w-36" alt="Foka-logo" />
             </a>
-            <p style={{ color: "#696969" }}>
-              با ما در ارتباط باشید.
-            </p>
-            <div className="flex text-xl justify-start items-center gap-10 text-red-500">
+            <p style={{ color: "#696969" }}>با ما در ارتباط باشید.</p>
+            <div className="flex text-xl justify-start items-center gap-10 text-green-500">
               <Link target="_blank" to={"https://facebook.com"}>
                 <FaFacebookF />
               </Link>
@@ -156,28 +31,28 @@ const Footer = () => {
             <ul className="text-white text-lg flex justify-start items-center flex-wrap gap-x-8 gap-y-4">
               <Link
                 onClick={scrollToTop}
-                className="hover:text-red-500 transition-all"
+                className="hover:text-green-500 transition-all"
                 to="/"
               >
                 خانه
               </Link>
               <Link
                 onClick={scrollToTop}
-                className="hover:text-red-500 transition-all"
+                className="hover:text-green-500 transition-all"
                 to="/services"
               >
                 خدمات ما
               </Link>
               <Link
                 onClick={scrollToTop}
-                className="hover:text-red-500 transition-all"
+                className="hover:text-green-500 transition-all"
                 to="/about"
               >
                 درباره ما
               </Link>
               <Link
                 onClick={scrollToTop}
-                className="hover:text-red-500 transition-all"
+                className="hover:text-green-500 transition-all"
                 to="/contact"
               >
                 تماس با ما
@@ -187,24 +62,34 @@ const Footer = () => {
           <p style={{ color: "#696969" }}>© Foka. All Rights Reserved 2026.</p>
         </div>
 
-        <div
-          id="contact"
-          className="w-2/4 max-lg:w-full flex flex-col h-auto justify-between items-start gap-10 "
-        >
-          <h1 className="text-3xl text-white">راه‌های ارتباطی</h1>
-          <div className="name w-full gap-8 text-white max-sm:flex-col max-sm:gap-10 mt-3 flex">
-            شماره تلفن: 
+        <div className="w-3/5 max-lg:w-full flex flex-col gap-10">
+          <div
+            className="rounded-2xl border border-neutral-800 bg-neutral-950/80 p-6 md:p-8 backdrop-blur-sm"
+            id="contact"
+          >
+            <ContactForm variant="footer" />
+          </div>
 
-            <p style={{direction:'ltr'}}>۰۲۱-۲۶۱۲۲۴۶۳</p>
-          </div>
-          
-          <div className="contact w-full text-white gap-8 max-sm:flex-col max-sm:gap-10  flex">
-            ایمیل: 
-            <p style={{direction:'ltr'}}>Fokatejarat@hotmail.com</p>
-          </div>
-          <div className="contact w-full text-white gap-8 max-sm:flex-col max-sm:gap-10  flex">
-            آدرس: 
-            <p style={{direction:'rtl'}}>اقدسیه - خیابان شهید موحد دانش - مجتمع تجاری اقدسیه - طبقه سوم - واحد ۳۳ و ۳۲</p>
+          <div className="flex flex-col gap-4 text-white text-base">
+            <h3 className="text-lg font-semibold text-neutral-300">راه‌های ارتباطی</h3>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <span className="text-neutral-500">تلفن:</span>
+              <p style={{ direction: "ltr" }} className="text-neutral-200">
+                ۰۲۱-۲۶۱۲۲۴۶۳
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-x-6 gap-y-2">
+              <span className="text-neutral-500">ایمیل:</span>
+              <p style={{ direction: "ltr" }} className="text-neutral-200">
+                Fokatejarat@hotmail.com
+              </p>
+            </div>
+            <div className="flex flex-col gap-1">
+              <span className="text-neutral-500">آدرس:</span>
+              <p className="text-neutral-200 leading-relaxed">
+                اقدسیه - خیابان شهید موحد دانش - مجتمع تجاری اقدسیه - طبقه سوم - واحد ۳۳ و ۳۲
+              </p>
+            </div>
           </div>
         </div>
       </footer>
