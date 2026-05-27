@@ -27,6 +27,13 @@ const HomePage = () => {
   const [articles, setArticles] = useState([]);
   const [reports, setReports] = useState([]);
   const [products, setProducts] = useState([]);
+  const [homeFeature, setHomeFeature] = useState(null);
+
+  const resolveMediaUrl = (url) => {
+    if (!url) return "/second-hero.webp";
+    if (url.startsWith("http")) return url;
+    return `${API_URL}${url.startsWith("/") ? url : `/${url}`}`;
+  };
   const errorToast = (res, status) => {
     toast({
       title: res,
@@ -70,6 +77,20 @@ const HomePage = () => {
       })
       .then((response) => {
         setProducts(response.data || []);
+      })
+      .catch((error) => console.log(error));
+
+    axios
+      .get(`${API_URL}/home-feature/`, {
+        headers: {
+          Accept: "application/json",
+        },
+      })
+      .then((response) => {
+        const items = response.data || [];
+        if (items.length > 0) {
+          setHomeFeature(items[0]);
+        }
       })
       .catch((error) => console.log(error));
   }, []);
@@ -250,7 +271,11 @@ const HomePage = () => {
                 We build quality real estate projects
                 <span className=" text-green-500 title-font "> since 1998</span>
               </h2> */}
-              <img src="/second-hero.webp" style={{borderRadius:"10%"}}></img>
+              <img
+                src={resolveMediaUrl(homeFeature?.image)}
+                alt={homeFeature?.title || "دستگاه پیرولیز"}
+                style={{ borderRadius: "10%" }}
+              />
             </motion.div>
           </div>
           <div className="w-2/4 max-md:w-full">
@@ -261,15 +286,18 @@ const HomePage = () => {
               viewport={{ once: true, amount: 0.2 }}
             >
               <h2 className="text-5xl max-md:text-4xl font-bold title-font">
-دستگاه پیرولیز 
+                {homeFeature?.title || "دستگاه پیرولیز"}
               </h2>
-              <p className="text-xl pt-5" style={{textAlign:"justify"}}>
-                با بهره‌گیری از تجربیات خود به عنوان یک توسعه‌دهنده پروژه، ما تجربه دست اولی از آنچه برای عملی کردن پروژه‌های پیرولیز واقعاً مورد نیاز است، داریم. فناوری پیرولیز این دستگاه ما به گونه‌ای ساخته شده است که مقرون به صرفه، همه‌کاره و با ظرفیت بالا باشد، در حالی که بالاترین استانداردهای بیوچار و بازیابی انرژی را ارائه می‌دهد.
-توانایی کار با انواع خوراک‌ها، زمان تولید و هزینه تولید، همگی چالش‌هایی هستند که ما در طراحی این دستگاه به آنها پرداخته‌ایم. با فناوری خود، امیدواریم که اجرای پروژه‌هایی را که صنعت پیرولیز زیست‌توده را به پتانسیل کامل خود نزدیک‌تر می‌کنند، تسریع کنیم.
+              <p className="text-xl pt-5" style={{ textAlign: "justify" }}>
+                {homeFeature?.description ||
+                  "با بهره‌گیری از تجربیات خود به عنوان یک توسعه‌دهنده پروژه، ما تجربه دست اولی از آنچه برای عملی کردن پروژه‌های پیرولیز واقعاً مورد نیاز است، داریم. فناوری پیرولیز این دستگاه ما به گونه‌ای ساخته شده است که مقرون به صرفه، همه‌کاره و با ظرفیت بالا باشد، در حالی که بالاترین استانداردهای بیوچار و بازیابی انرژی را ارائه می‌دهد. توانایی کار با انواع خوراک‌ها، زمان تولید و هزینه تولید، همگی چالش‌هایی هستند که ما در طراحی این دستگاه به آنها پرداخته‌ایم. با فناوری خود، امیدواریم که اجرای پروژه‌هایی را که صنعت پیرولیز زیست‌توده را به پتانسیل کامل خود نزدیک‌تر می‌کنند، تسریع کنیم."}
               </p>
-              <Link onClick={scrollToTop} to={"/about"}>
+              <Link
+                onClick={scrollToTop}
+                to={homeFeature?.button_link || "/about"}
+              >
                 <Button
-                  content={"درباره ما"}
+                  content={homeFeature?.button_text || "درباره ما"}
                   fontSize={"text-xl"}
                   padding={"px-5  py-2"}
                   furtherClasses={"mt-8"}
@@ -295,9 +323,7 @@ const HomePage = () => {
             <h2 className="text-5xl max-md:text-4xl font-bold title-font">
               چرا ما ؟ 
             </h2>
-            <p className="text-xl">
-              تهیه و تلاش در اشتراک  
-            </p>
+        
             <Link onClick={scrollToTop} to={"/about"}>
               <button
                 style={{ borderWidth: 1.5, borderRadius: 4 }}
@@ -317,16 +343,16 @@ const HomePage = () => {
           >
             <div className="flex flex-col gap-7 ">
               <WhatWeDoCard
-                iconSrc={"/icons/reliability.png"}
-                iconAlt={"reliability"}
+                iconSrc={"/icons/reliable.png"}
+                iconAlt={"reliable"}
                 title={"قابل اطمینان"}
                 desc={
                   "ما با ارائه خدمات با کیفیت بالا، اطمینان حاصل می‌کنیم که مشتریان ما از خدمات ما راضی باشند."
                 }
               />
               <WhatWeDoCard
-                iconSrc={"/icons/communication.png"}
-                iconAlt={"communication"}
+                iconSrc={"/icons/support.png"}
+                iconAlt={"support"}
                 title={"پشتیبانی حرفه‌ای"}
                 desc={
                   "ما تیم پشتیبانی ما با تجربه و دانش متخصص در زمینه‌ی پیرولیز، آماده به ارائه خدمات پشتیبانی حرفه‌ای برای شماست."
@@ -339,7 +365,7 @@ const HomePage = () => {
                 className="max-md:hidden rounded-lg w-80 bg-gradient-to-t from-white to-transparent"
               ></div>
               <WhatWeDoCard
-                iconSrc={"/icons/quality-first.png"}
+                iconSrc={"/icons/high_quality.png"}
                 iconAlt={"quality-first"}
                 title={"کیفیت بالا"}
                 desc={

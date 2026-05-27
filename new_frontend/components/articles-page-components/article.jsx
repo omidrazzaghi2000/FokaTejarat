@@ -54,7 +54,7 @@ const ArticlePage = ({ title, description, imageSrc }) => {
           <h1 className="text-[46px] leading-none max-md:text-4xl font-semibold">
             {title}
           </h1>
-          <div className="text-xl flex flex-col gap-3">
+          <div className="text-xl flex flex-col gap-3 leading-normal">
             <p>{description}</p>
           </div>
           {/* <div className="mt-10">

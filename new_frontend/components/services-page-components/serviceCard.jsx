@@ -21,7 +21,7 @@ const ServiceCard = ({ id, title, imgSrc, iconSrc, brief }) => {
         alt={imgSrc}
       />
       <div className="w-full h-full absolute bg-black/50"></div>
-      <div className="it-container px-4 w-full h-full absolute text-white hover:bg-red-500 transition-all duration-500 flex flex-col justify-center items-center gap-2">
+      <div className="it-container px-4 w-full h-full absolute text-white hover:bg-green-500 transition-all duration-500 flex flex-col justify-center items-center gap-2">
         {!!iconSrc && <img src={iconSrc} className="w-16 " alt="icon" />}
         <h2 className="service-heading text-3xl title-font font-semibold -mb-36 transition-all duration-200 ">
           {title}

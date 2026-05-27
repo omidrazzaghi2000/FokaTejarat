@@ -14,6 +14,7 @@ urlpatterns = [
   path('contact/', include('contact.urls')),
   path('hero/', include('hero.urls')),
   path('footer/', include('footer.urls')),
+  path('home-feature/', include('home_feature.urls')),
 ]
 
 if settings.DEBUG:

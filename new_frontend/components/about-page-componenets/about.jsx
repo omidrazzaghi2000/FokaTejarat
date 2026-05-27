@@ -83,7 +83,7 @@ const AboutPage = () => {
               </p>
             </div>
             {/* <div>
-              <h2 className="text-2xl text-red-500 font-semibold">
+              <h2 className="text-2xl text-green-500 font-semibold">
                 Get your property ready
               </h2>
               <p className="text-xl mt-2">
@@ -92,7 +92,7 @@ const AboutPage = () => {
               </p>
             </div>
             <div>
-              <h2 className="text-2xl text-red-500 font-semibold">
+              <h2 className="text-2xl text-green-500 font-semibold">
                 Offer acceptance
               </h2>
               <p className="text-xl mt-2">
@@ -135,7 +135,7 @@ const AboutPage = () => {
             >
               <div className="flex">
 <h2 className="title-font font-semibold">۱</h2>
-              <h2 className="title-font mt-7  font-medium text-red-500">
+              <h2 className="title-font mt-7  font-medium text-green-500">
                 لاستیک‌های فرسوده
               </h2>
               </div>
@@ -151,7 +151,7 @@ const AboutPage = () => {
             >
               <div className="flex">
 <h2 className="title-font font-semibold">۲</h2>
-              <h2 className="title-font mt-7  font-medium text-red-500">
+              <h2 className="title-font mt-7  font-medium text-green-500">
 پلاستیک‌هاو مواد پلیمری زائد              </h2>
               </div>
             </motion.div>
@@ -164,8 +164,8 @@ const AboutPage = () => {
             >
               <div className="flex">
 <h2 className="title-font font-semibold">۳</h2>
-              <h2 className="title-font mt-7  font-medium text-red-500">
-لجن‌های نفتی و روغن‌های پسماند             </h2>
+              <h2 className="title-font mt-7  font-medium text-green-500">
+انواع پسماندهای شهری            </h2>
               </div>
             </motion.div>
           </div>
@@ -189,7 +189,7 @@ const AboutPage = () => {
           >
             <h1 className="text-5xl ">
               We seek to create value for investors across the
-              <span className="text-red-500"> real estate spectrum</span>
+              <span className="text-green-500"> real estate spectrum</span>
             </h1>
             <div className="flex flex-col gap-5 mt-7">
               <div className="flex justify-between items-center border-b-2 border-black/30 pb-5 text-2xl">
@@ -197,7 +197,7 @@ const AboutPage = () => {
                 <Link
                   to={"/services"}
                   onClick={scrollToTop}
-                  className="text-red-500"
+                  className="text-green-500"
                 >
                   <FaArrowRight className="rotate-45" />
                 </Link>
@@ -207,7 +207,7 @@ const AboutPage = () => {
                 <Link
                   to={"/services"}
                   onClick={scrollToTop}
-                  className="text-red-500"
+                  className="text-green-500"
                 >
                   <FaArrowRight className="rotate-45" />
                 </Link>
@@ -217,7 +217,7 @@ const AboutPage = () => {
                 <Link
                   to={"/services"}
                   onClick={scrollToTop}
-                  className="text-red-500"
+                  className="text-green-500"
                 >
                   <FaArrowRight className="rotate-45" />
                 </Link>
@@ -227,7 +227,7 @@ const AboutPage = () => {
                 <Link
                   to={"/services"}
                   onClick={scrollToTop}
-                  className="text-red-500"
+                  className="text-green-500"
                 >
                   <FaArrowRight className="rotate-45" />
                 </Link>
@@ -268,7 +268,7 @@ const AboutPage = () => {
               className="grid grid-cols-2 grid-rows-2 gap-10"
             >
               <div className="flex flex-col max-lg:justify-center max-lg:items-center">
-                <h2 className="title-font text-red-500 text-5xl max-md:text-4xl font-semibold">
+                <h2 className="title-font text-green-500 text-5xl max-md:text-4xl font-semibold">
                   8
                 </h2>
                 <p className="text-xl">
@@ -276,7 +276,7 @@ const AboutPage = () => {
                 </p>
               </div>
               <div className="flex flex-col max-lg:justify-center max-lg:items-center">
-                <h2 className="title-font text-red-500 text-5xl max-md:text-4xl font-semibold">
+                <h2 className="title-font text-green-500 text-5xl max-md:text-4xl font-semibold">
                   8
                 </h2>
                 <p className="text-xl">
@@ -284,7 +284,7 @@ const AboutPage = () => {
                 </p>
               </div>
               <div className="flex flex-col max-lg:justify-center max-lg:items-center">
-                <h2 className="title-font text-red-500 text-5xl max-md:text-4xl font-semibold">
+                <h2 className="title-font text-green-500 text-5xl max-md:text-4xl font-semibold">
                   8
                 </h2>
                 <p className="text-xl">
@@ -292,7 +292,7 @@ const AboutPage = () => {
                 </p>
               </div>
               <div className="flex flex-col max-lg:justify-center max-lg:items-center">
-                <h2 className="title-font text-red-500 text-5xl max-md:text-4xl font-semibold">
+                <h2 className="title-font text-green-500 text-5xl max-md:text-4xl font-semibold">
                   8
                 </h2>
                 <p className="text-xl">

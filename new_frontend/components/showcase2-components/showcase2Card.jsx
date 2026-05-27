@@ -13,16 +13,24 @@ const Showcase2Card = ({ src, href, title }) => {
       style={{ height: 380 }}
       className="relative w-full"
     >
-      <div className="z-40 w-full h-full top-4 opacity-0 hover:opacity-100 transition-all duration-500 max-sm:top-2 max-sm:right-2 right-4 absolute pt-72 pl-10 bg-red-500">
-        <Link
+      <Link
           onClick={scrollToTop}
           to={href}
-          className="text-3xl text-left w-fit text-white hover:text-black transition-all cursor-pointer "
+          style={{direction: 'rtl'}}
+          className="text-3xl text-left w-fit text-black hover:text-black transition-all cursor-pointer "
         >
-          {title}
-        </Link>
-      </div>
-      <img className="w-full h-full object-cover" src={src} alt="img" />
+          <div>
+            <img className="w-full object-cover  hover:scale-2" src={src} alt="img" style={{height:"300px"}}/>
+            <div style={{fontSize:"14pt",direction:"rtl",textAlign:"right"}}>
+            {title}
+            </div>
+           
+          </div>
+      
+         
+        
+    
+      </Link>
     </motion.div>
   );
 };
