@@ -171,8 +171,15 @@ ALLOWED_HOSTS=your-domain.com,www.your-domain.com
 CORS_ALLOWED_ORIGINS=https://your-domain.com
 ```
 
-### 4. فعال‌سازی HTTPS (اختیاری)
-در `settings.py` می‌توانید `SECURE_SSL_REDIRECT = True` را فعال کنید.
+### 4. فعال‌سازی HTTPS (SSL)
+راهنمای کامل: **[HTTPS.md](./HTTPS.md)**
+
+خلاصه:
+```bash
+# در .env: DOMAIN، USE_HTTPS=True، CORS/CSRF با https://
+./scripts/init-letsencrypt.sh your-domain.com admin@your-domain.com
+```
+پورت‌های **80** و **443** باید روی سرور باز باشند.
 
 ## نکات مهم
 

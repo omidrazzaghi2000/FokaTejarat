@@ -149,21 +149,34 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOWED_ORIGINS = os.environ.get(
-  'CORS_ALLOWED_ORIGINS',
-  'http://localhost:3000,http://localhost:5173,http://127.0.0.1:5173'
-).split(',')
+CORS_ALLOWED_ORIGINS = [
+  origin.strip()
+  for origin in os.environ.get(
+    'CORS_ALLOWED_ORIGINS',
+    'http://localhost:3000,http://localhost:5173,http://127.0.0.1:5173'
+  ).split(',')
+  if origin.strip()
+]
+
+_csrf_origins = os.environ.get('CSRF_TRUSTED_ORIGINS', '')
+CSRF_TRUSTED_ORIGINS = [
+  origin.strip() for origin in _csrf_origins.split(',') if origin.strip()
+]
 
 FILE_UPLOAD_PERMISSIONS = 0o640
 
-# Security settings for production
+USE_HTTPS = os.environ.get('USE_HTTPS', 'False').lower() in ('true', '1', 'yes')
+
+# Security settings for production (HTTPS terminated at nginx)
 if not DEBUG:
-  SECURE_SSL_REDIRECT = False  # Set to True if using HTTPS
-  SESSION_COOKIE_SECURE = False  # Set to True if using HTTPS
-  CSRF_COOKIE_SECURE = False  # Set to True if using HTTPS
+  SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+  SECURE_SSL_REDIRECT = False  # nginx redirects HTTP → HTTPS
+  SESSION_COOKIE_SECURE = USE_HTTPS
+  CSRF_COOKIE_SECURE = USE_HTTPS
   SECURE_BROWSER_XSS_FILTER = True
   SECURE_CONTENT_TYPE_NOSNIFF = True
   X_FRAME_OPTIONS = 'DENY'
-  SECURE_HSTS_SECONDS = 31536000
-  SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-  SECURE_HSTS_PRELOAD = True
+  if USE_HTTPS:
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
