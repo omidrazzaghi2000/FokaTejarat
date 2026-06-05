@@ -29,7 +29,7 @@ sleep 10
 
 # Get initial certificate
 echo "Obtaining Let's Encrypt certificate for $DOMAIN..."
-docker compose run --rm certbot certonly --webroot -w /var/www/certbot -d "$DOMAIN" --email your-email@example.com --agree-tos --no-eff-email
+docker compose run --rm certbot -v certonly --webroot -w /var/www/certbot -d "$DOMAIN" --email your-email@example.com --agree-tos --no-eff-email
 
 # Restart new_frontend to pick up the certificates
 echo "Restarting frontend to apply SSL..."
