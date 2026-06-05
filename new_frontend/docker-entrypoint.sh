@@ -1,17 +1,21 @@
 #!/bin/sh
-set -eu
+set -e
 
-DOMAIN="${DOMAIN:-}"
-CERT_PATH="/etc/letsencrypt/live/${DOMAIN}/fullchain.pem"
-
-if [ -n "$DOMAIN" ] && [ -f "$CERT_PATH" ]; then
-  echo "SSL certificates found for ${DOMAIN} — enabling HTTPS"
-  envsubst '${DOMAIN}' < /etc/nginx/templates/nginx-ssl.conf.template > /etc/nginx/conf.d/default.conf
+# If DOMAIN is not set, use HTTP only config
+if [ -z "$DOMAIN" ]; then
+    echo "No DOMAIN set, using HTTP-only config"
+    envsubst < /etc/nginx/templates/nginx.http.conf > /etc/nginx/conf.d/default.conf
 else
-  if [ -n "$DOMAIN" ]; then
-    echo "No SSL certs at ${CERT_PATH} — serving HTTP only (run scripts/init-letsencrypt.sh)"
-  fi
-  cp /etc/nginx/templates/nginx.http.conf /etc/nginx/conf.d/default.conf
+    echo "DOMAIN set to $DOMAIN, checking for SSL certificates"
+    
+    # Check if certificates exist
+    if [ ! -f "/etc/letsencrypt/live/$DOMAIN/fullchain.pem" ]; then
+        echo "No SSL certificates found, using HTTP-only config temporarily"
+        envsubst < /etc/nginx/templates/nginx.http.conf > /etc/nginx/conf.d/default.conf
+    else
+        echo "SSL certificates found, using HTTPS config"
+        envsubst < /etc/nginx/templates/nginx-ssl.conf.template > /etc/nginx/conf.d/default.conf
+    fi
 fi
 
 exec nginx -g 'daemon off;'
